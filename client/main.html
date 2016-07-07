@@ -1,0 +1,87 @@
+<head>
+  <title>simple</title>
+</head>
+
+<body>
+  <div class="container">
+
+    {{> header}}
+    {{> app}}
+    <div class="logo_powered">
+      <div>
+        Powered by
+      </div>
+      <img src="/storebrand_twitter.png" />
+    </div>
+  </div>
+</body>
+
+<template name="header">
+  <div class="contianer">
+    <h2>Se hvordan livet ditt forandres hvis du blir ufør</h2>
+  </div>
+</template>
+
+<template name="app">
+  {{> features}}
+  {{> chartModule}}
+  <div class="row">
+    <div class="lifetime_loss col s12 l6">
+      <div class="row">
+        <div class="col s6 l12">
+          <h5>Estimert samlet inntekt du mister på livstid</h5>
+        </div>
+        <div class="col s6 l12">
+          <h1>{{salary_loss_lifetime}}</h1>
+        </div>
+      </div>
+    </div>
+    <div class="fact_box col s12 l6">
+      <div class="container">
+
+      <ul>
+        <li>
+          <p class="flow-text">Inntekten din kan halveres hvis du blir ufør</p>
+        </li>
+        <li>
+          <p class="flow-text">Blir du arbeidsufør som ung vil du tilbringe resten av livet som minstepensjonist.</p>
+        </li>
+        <li>
+          <p class="flow-text">Hele 40% av oss blir uføre</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  <div class="center-align">
+    <btn class="btn large center-align">
+      <a target="_blank" style="color: #fff;" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Skaff deg uføreforsikring her!</a>
+    </btn>
+  </div>
+</template>
+
+
+
+<template name="features">
+  <div class="row">
+    <div class="input-field col s12 l6">
+      <input id="salaryInput" type="text" class="validate" value="{{gross_salary}}">
+      <label for="salaryInput">Årslønn</label>
+    </div>
+    <div class="input-field col s12 l6">
+      <input id="ageInput" type="text" class="validate" value="{{age}}">
+      <label for="ageInput">Alder</label>
+    </div>
+  </div>
+</template>
+
+<template name="chartModule">
+  <div id="chart">{{createChart}}</div>
+</template>
+
+<template name="consequence">
+  <div>
+    <div>{{img_text}}</div>
+    <img src={{img_url}} />
+  </div>
+</template>
