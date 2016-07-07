@@ -36,9 +36,6 @@ if(Meteor.isClient) {
               text: "Netto utbetalt månedslønn"
             }
           },
-          title: {
-              text: 'En tjeneste fra Storebrand'
-          },
           plotOptions: {
             column: {
                 dataLabels: {

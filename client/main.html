@@ -2,31 +2,23 @@
   <title>simple</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link rel="stylesheet" href="main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
   <div class="container">
-
-    {{> header}}
-    {{> app}}
-    <div class="logo_powered">
-      <div>
-        Powered by
-      </div>
+    <h2>Se hvordan livet ditt forandres hvis du blir ufør</h2>
+    <p class="valign-wrapper">
+      En tjeneste fra Storebrand
       <img src="/storebrand_twitter.png" />
-    </div>
+    </p>
+    {{> app}}
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
 </body>
-
-<template name="header">
-  <div class="contianer">
-    <h2>Se hvordan livet ditt forandres hvis du blir ufør</h2>
-  </div>
-</template>
 
 <template name="app">
   {{> features}}
@@ -60,7 +52,7 @@
   </div>
   </div>
   <div class="center-align">
-    <btn class="btn large center-align">
+    <btn class="btn large">
       <a target="_blank" style="color: #fff;" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Skaff deg uføreforsikring her!</a>
     </btn>
   </div>
