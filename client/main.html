@@ -1,5 +1,6 @@
 <head>
-  <title>simple</title>
+  <title>Konsekvens.no</title>
+  <script src="https://cdn.optimizely.com/js/6460060019.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
   <link rel="stylesheet" href="main.css">
@@ -9,7 +10,7 @@
 <body>
   <div class="container">
     <h2>Se hvordan livet ditt forandres hvis du blir ufør</h2>
-    <p class="valign-wrapper">
+    <p class="center-align">
       En tjeneste fra Storebrand
       <img src="/storebrand_twitter.png" />
     </p>
@@ -21,6 +22,7 @@
 </body>
 
 <template name="app">
+  {{> archetypes}}
   {{> features}}
   {{> chartModule}}
   <div class="row">
@@ -52,12 +54,25 @@
   </div>
   </div>
   <div class="center-align">
-    <btn class="btn large">
+    <button class="btn  waves-effect waves-light lg">
       <a target="_blank" style="color: #fff;" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Skaff deg uføreforsikring her!</a>
-    </btn>
+    </button>
   </div>
 </template>
 
+<template name="archetypes">
+  <div class="row center-align">
+    <button class="btn  waves-effect waves-light" id="student">
+      Student
+    </button>
+    <button class="btn  waves-effect waves-light" id="nyansatt">
+      Nyansatt
+    </button>
+    <button class="btn  waves-effect waves-light" id="arbeidsledg">
+      Arbeidsledig
+    </button>
+  </div>
+</template>
 
 
 <template name="features">
