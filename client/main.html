@@ -17,6 +17,7 @@
         <img src="/storebrand_twitter.png" />
       </div>
     </div>
+    {{> archetypes}}
     {{> app}}
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
@@ -69,13 +70,13 @@
 
 <template name="archetypes">
   <div class="row center-align">
-    <button class="btn  waves-effect waves-light" id="student">
+    <button type="button" class="btn  waves-effect waves-light" id="student">
       Student
     </button>
-    <button class="btn  waves-effect waves-light" id="nyansatt">
+    <button type="button" class="btn  waves-effect waves-light" id="nyansatt">
       Nyansatt
     </button>
-    <button class="btn  waves-effect waves-light" id="arbeidsledg">
+    <button type="button" class="btn  waves-effect waves-light" id="arbeidsledig">
       Arbeidsledig
     </button>
   </div>

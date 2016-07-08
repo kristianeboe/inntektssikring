@@ -88,6 +88,7 @@ if(Meteor.isClient) {
     'keyup #ageInput':function(){
       age = event.target.value
       years_left = 67-age
+      console.log("lolol");
       Session.set("years_left", years_left)
       Session.set("age", age)
       salary_loss_lifetime = Session.get("salary_loss") * years_left

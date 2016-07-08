@@ -1,13 +1,17 @@
 Template.archetypes.events({
-  'onclick #student': function() {
+  'click #student': function() {
     console.log("I'm clicked");
-    Session.set("gross_salary", 50000)
-    Session.set("age", 21)
+    setState(50000, 21)
     Session.set("debt", 300000)
   },
-  'onclick #nyansatt': function() {
-    Session.set("gross_salary", 500000)
-    Session.set("age", 26)
+  'click #nyansatt': function() {
+    console.log("I'm clicked");
+    setState(500000, 26)
     Session.set("debt", 500000)
+  },
+  'click #arbeidsledig': function() {
+    console.log("I'm clicked");
+    setState(0, 26)
+    Session.set("debt", 4000000)
   }
 });
