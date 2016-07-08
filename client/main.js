@@ -66,12 +66,18 @@ if(Meteor.isClient) {
     'keyup #salaryInput':function(){
       gross_salary = event.target.value
       net_salary = (gross_salary * (1-taxIndex(gross_salary)/100))
-      if (gross_salary <= 555456) {
+      if (gross_salary <50000){
+        payout = 210000
+      }
+      else if (gross_salary <= 555456) {
         payout = (gross_salary*0.66*0.74)
       } else {
         payout = (366000*0.66)
       }
       salary_loss = net_salary-payout
+      if (salary_loss <0) {
+        salary_loss = 0
+      }
       Session.set("gross_salary", gross_salary)
       Session.set("net_salary", net_salary)
       Session.set("payout", payout)
