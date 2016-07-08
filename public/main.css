@@ -8,3 +8,7 @@
 .flow-text {
   font-size: 1em;
 }
+
+body {
+    padding-bottom: 50px;
+}

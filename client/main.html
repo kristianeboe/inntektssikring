@@ -9,29 +9,28 @@
 
 <body>
   <div class="container">
-    <h2>Se hvordan livet ditt forandres hvis du blir ufør</h2>
+    <h3>Se hvordan livet ditt forandres hvis du blir ufør</h3>
+    <h5>Skriv inn årslønn og alder i feltene under</h5>
     <p class="center-align">
-      En tjeneste fra Storebrand
-      <img src="/storebrand_twitter.png" />
+      <span class="vertical-align">En tjeneste fra Storebrand
+      <img src="/storebrand_twitter.png" /></span>
     </p>
     {{> app}}
   </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
 </body>
 
 <template name="app">
-  {{> archetypes}}
   {{> features}}
   {{> chartModule}}
-  <div class="row">
+  <section class="row salg">
     <div class="lifetime_loss col s12 l6">
-      <div class="row">
-        <div class="col s6 l12">
-          <h5>Estimert samlet inntekt du mister på livstid</h5>
+      <div>
+        <div>
+          <h5>Estimert samlet inntekt du mister på livstid:</h5>
         </div>
-        <div class="col s6 l12">
+        <div>
           <h1>{{salary_loss_lifetime}}</h1>
         </div>
       </div>
@@ -41,23 +40,29 @@
 
       <ul>
         <li>
-          <p class="flow-text">Inntekten din kan halveres hvis du blir ufør</p>
+          <h5>Visste du at du kan få igjen lønnen din på forsikringen hver måned frem til pensjonsalder hvis du blir varig syk?</h5>
         </li>
+        <li>
+          <h5><b>Med uføreforsikring er det mulig.</b></h5>
+        </li>
+        <!--
         <li>
           <p class="flow-text">Blir du arbeidsufør som ung vil du tilbringe resten av livet som minstepensjonist.</p>
         </li>
         <li>
           <p class="flow-text">Hele 40% av oss blir uføre</p>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
-  </div>
+</section>
   <div class="center-align">
     <button class="btn  waves-effect waves-light lg">
-      <a target="_blank" style="color: #fff;" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Skaff deg uføreforsikring her!</a>
+      <a target="_blank" style="color: #fff;" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Forsikre inntekten din</a>
     </button>
   </div>
+  <p class="footer">
+  </p>
 </template>
 
 <template name="archetypes">

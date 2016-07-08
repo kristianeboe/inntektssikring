@@ -28,12 +28,21 @@ if(Meteor.isClient) {
             type: 'column',
             data: series_data
           }],
+          title: {
+            text: "Netto utbetalt i måneden"
+          },
           xAxis: {
-            categories: ['Dagens månedslønn', 'Månedslønn ved uførhet', 'Penger du taper hver måned']
+            categories: ['Vanlig lønn', 'Folketrygden', 'Tapt inntekt'],
+            labels: {
+                style: {
+                    //color: 'red',
+                    fontSize:'15px'
+                }
+            }
           },
           yAxis: {
             title: {
-              text: "Netto utbetalt månedslønn"
+              text: ""
             }
           },
           plotOptions: {
