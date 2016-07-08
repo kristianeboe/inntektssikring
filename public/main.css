@@ -12,3 +12,13 @@
 body {
     padding-bottom: 50px;
 }
+
+.logo {
+  padding-left: 40%;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    padding-left: 25%;
+  }
+}
