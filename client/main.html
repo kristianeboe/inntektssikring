@@ -14,8 +14,8 @@
 <body>
   <div class="container">
     <div class="lifehead">
-    <h3>Se hvordan livet ditt forandres hvis du blir ufør</h3>
-    <h5>Skriv inn årslønn og alder i feltene under</h5>
+    <h3>Min inntekt</h3>
+    <h5>Sjekk hvordan inntekten din forandres hvis du blir skadet eller varig syk</h5>
       <div class="logo">
         <div class="valign-wrapper">
             En tjeneste fra Storebrand
@@ -97,8 +97,8 @@
 <template name="features">
   <div class="row">
     <div class="input-field col s12 l6">
-      <input id="salaryInput" type="text" class="validate" value="{{gross_salary}}">
-      <label for="salaryInput">Årslønn</label>
+      <input id="salaryInput" type="text" class="validate" value="{{gross_salary}}" placeholder="Årslønn">
+      <!-- <label for="salaryInput">Årslønn</label> -->
       <!--
        <form action="#">
          <p class="range-field">
@@ -108,8 +108,8 @@
      -->
     </div>
     <div class="input-field col s12 l6">
-      <input id="ageInput" type="text" class="validate" value="{{age}}">
-      <label for="ageInput">Alder</label>
+      <input id="ageInput" type="text" class="validate" value="{{age}}" placeholder="Alder">
+      <!-- <label for="ageInput">Alder</label> -->
       <!--
       <form action="#">
         <p class="range-field">
