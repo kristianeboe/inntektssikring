@@ -92,6 +92,15 @@ if(Meteor.isClient) {
       Session.set("age", age)
       salary_loss_lifetime = Session.get("salary_loss") * years_left
       Session.set("salary_loss_lifetime", salary_loss_lifetime)
+    },
+    'onchange #salary_range':function() {
+      console.log("Hello");
     }
   });
+
+  Template.features.events({
+    'onchange #salary_range':function() {
+      console.log("Hello");
+    }
+  })
 }
