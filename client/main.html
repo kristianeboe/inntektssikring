@@ -9,6 +9,22 @@
     window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
     heap.load("3479675784");
   </script>
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
 </head>
 
 <body>
@@ -57,7 +73,7 @@
 
       <ul>
         <li>
-          <h5>Visste du at du kan få igjen lønnen din på forsikringen hver måned frem til pensjonsalder hvis du blir varig syk?</h5>
+          <h5>Visste du at du kan få igjen lønnen din på forsikringen hver måned frem til pensjonsalder hvis det utenkelige skulle skje?</h5>
         </li>
         <li>
           <h5><b>Med uføreforsikring er det mulig.</b></h5>
@@ -75,11 +91,18 @@
 </section>
   <div class="center-align">
     <button class="btn">
-      <a target="_blank" style="color: #fff;" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Forsikre inntekten din</a>
+      <a target="_blank" style="color: #fff;" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Sikre inntekten din</a>
     </button>
+    <!--
+    <a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet">
+  Tweet</a>
+-->
   </div>
+
   <p class="footer">
   </p>
+
 </template>
 
 <template name="archetypes">
