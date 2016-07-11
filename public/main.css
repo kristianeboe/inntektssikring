@@ -1,4 +1,32 @@
 /* CSS declarations go here */
+body {
+    padding-bottom: 50px;
+    background-color: #e6d1b8;
+}
+
+.lifehead{
+    height: 160px;
+    min-width: 100%;
+    background-color: #fff;
+    font-size: 22px;
+    line-height: 160px;
+    text-align: center;
+    background-color: #da291c;
+    color: #fff;
+    width: 100%;
+  }
+
+
+#lifebody{
+  width: 100%;
+  background-color: #b0dfdb
+}
+
+#insurancebody{
+  background-color: #e6d1b8
+}
+
+
 .logo_powered {
      position: fixed;
      top: 0;
@@ -9,16 +37,12 @@
   font-size: 1em;
 }
 
-body {
-    padding-bottom: 50px;
-}
-
-.logo {
+.lifehead .logo {
   padding-left: 40%;
 }
 
 @media (max-width: 600px) {
-  .logo {
+  .lifehead .logo {
     padding-left: 25%;
   }
 }
