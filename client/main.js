@@ -103,7 +103,7 @@ if(Meteor.isClient) {
       document.getElementById('salaryInput').value = gross_salary
       setState(gross_salary, age)
     },
-    'change #age_range':function() {
+    'input #age_range':function() {
       age = event.target.value
       gross_salary = document.getElementById('salaryInput').value
       document.getElementById('ageInput').value = age
