@@ -93,15 +93,21 @@ if(Meteor.isClient) {
       Session.set("age", age)
       salary_loss_lifetime = Session.get("salary_loss") * years_left
       Session.set("salary_loss_lifetime", salary_loss_lifetime)
-    },
-    'onchange #salary_range':function() {
-      console.log("Hello");
     }
   });
 
   Template.features.events({
-    'onchange #salary_range':function() {
-      console.log("Hello");
+    'change #salary_range':function() {
+      gross_salary = event.target.value
+      age = document.getElementById('ageInput').value
+      document.getElementById('salaryInput').value = gross_salary
+      setState(gross_salary, age)
+    },
+    'change #age_range':function() {
+      age = event.target.value
+      gross_salary = document.getElementById('salaryInput').value
+      document.getElementById('ageInput').value = age
+      setState(gross_salary, age)
     }
   })
 }
