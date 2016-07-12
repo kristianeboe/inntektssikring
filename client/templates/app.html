@@ -1,0 +1,62 @@
+<template name="app">
+  <div class="container">
+    {{> header}}
+    <h1>Min inntekt</h1>
+    <h5>Sjekk hvordan inntekten din forandres hvis du blir skadet eller varig syk</h5> {{> features}} {{> chartModule}}
+    <section class="row salg">
+      <div class="lifetime_loss col s12 l6">
+        <div>
+          <div>
+            <h5>Estimert samlet inntekt du mister på livstid:</h5>
+          </div>
+          <div>
+            <h1>{{salary_loss_lifetime}}</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="stbcolor-secondary sixth">
+    <div class="container">
+
+      <ul>
+        <li>
+          <h5>Visste du at du kan få igjen lønnen din på forsikringen hver måned frem til pensjonsalder hvis det utenkelige skulle skje?</h5>
+        </li>
+        <li>
+          <h5><b>Med uføreforsikring er det mulig.</b></h5>
+        </li>
+        <!--
+        <li>
+          <p class="flow-text">Blir du arbeidsufør som ung vil du tilbringe resten av livet som minstepensjonist.</p>
+        </li>
+        <li>
+          <p class="flow-text">Hele 40% av oss blir uføre</p>
+        </li> -->
+      </ul>
+      <div class="center-align">
+        <a class="stb-btn" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Sikre inntekten din</a>
+        <!--
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=@storebrand%20#inntektssikring" data-size="large">
+          Tweet
+        </a>
+        <div class="fb-share-button" data-href="http://konsekvens.herokuapp.com/" data-layout="button" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkonsekvens.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div>
+      -->
+      </div>
+      <p class="footer">
+
+      </p>
+    </div>
+  </div>
+
+
+
+</template>
+
+<template name="header">
+  <div class="logo col s12">
+    <div class="valign-wrapper">
+      <img src="/bigbrand_logo.png" /> Storebrand
+    </div>
+  </div>
+</template>
