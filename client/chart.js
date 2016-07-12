@@ -14,7 +14,7 @@ if(Meteor.isClient) {
 
 
 
-      series_data = [net_salary, payout, {y: salary_loss, color: "red"}]
+      series_data = [{y:net_salary, color: "#b0dfdb"}, {y:payout, color:"#b0dfdb"}, {y: salary_loss, color: "#da291c"}]
 
       // Use Meteor.defer() to craete chart after DOM is ready:
       Meteor.defer(function() {
@@ -32,7 +32,7 @@ if(Meteor.isClient) {
             text: "Netto utbetalt i måneden"
           },
           xAxis: {
-            categories: ['Vanlig lønn', 'Folketrygden', 'Tapt inntekt'],
+            categories: ['Lønn', 'Trygd', 'Tap'],
             labels: {
                 style: {
                     //color: 'red',
@@ -44,6 +44,9 @@ if(Meteor.isClient) {
             title: {
               text: ""
             }
+          },
+          chart: {
+            height: 300
           },
           plotOptions: {
             column: {

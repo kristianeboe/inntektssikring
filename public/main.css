@@ -1,32 +1,16 @@
 /* CSS declarations go here */
 .footer {
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 }
 
-/*
-.lifehead{
-    height: 160px;
-    min-width: 100%;
-    background-color: #fff;
-    font-size: 22px;
-    line-height: 160px;
-    text-align: center;
-    background-color: #da291c;
-    color: #fff;
-    width: 100%;
-  }
-
-
-#lifebody{
-  width: 100%;
-  background-color: #b0dfdb
+h5 {
+  padding-bottom: 10px;
 }
 
-#insurancebody{
-  background-color: #e6d1b8
+.actions {
+  padding-top: 20px;
 }
 
-*/
 .logo_powered {
      position: fixed;
      top: 0;
@@ -39,6 +23,7 @@
 
 .logo {
   padding-left: 40%;
+  padding-bottom: 20px;
 }
 
 @media (max-width: 600px) {
