@@ -1,15 +1,11 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-import './main.html';
+import './index.html';
 
 if(Meteor.isClient) {
-
-
   Template.app.onCreated(function salary_inputOnCreated() {
-    Session.set("gross_salary", 0)
-    Session.set("age", 0)
-    Session.set("net_salary", 0)
+    setState(550000, 26)
   });
 
   Template.app.helpers({
@@ -23,41 +19,6 @@ if(Meteor.isClient) {
       return salary_loss_lifetime
     }
   });
-
-  Template.consequence.helpers({
-    img_url: function() {
-      salary_loss = Session.get("salary_loss")
-      img_url = ""
-      if (salary_loss < 500) {
-        img_url = ""
-      } else if (salary_loss < 10000) {
-        img_url = "/apple_products.png"
-      } else if (salary_loss < 600000) {
-        img_url = "/crappyCamperVan.jpeg"
-      } else if (salary_loss < 1000000000){
-        img_url = "/tesla.jpeg"
-      } else {
-        img_url = ""
-      }
-      return img_url
-    },
-    img_text: function() {
-      salary_loss = Session.get("salary_loss")
-      img_text = ""
-      if (salary_loss < 500) {
-        img_text = ""
-      } else if (salary_loss < 10000) {
-        img_text = "Aldri mer apple produkter"
-      } else if (salary_loss < 600000) {
-        img_text = "Må nok forberede deg på ny bil/kanskje nytt hjem"
-      } else if (salary_loss < 1000000000){
-        img_text = "Denne får du aldri råd til nå"
-      } else {
-        img_text = ""
-      }
-      return img_text
-    }
-  })
 
   Template.app.events({
     'submit' : function(event) {
@@ -88,26 +49,10 @@ if(Meteor.isClient) {
     'keyup #ageInput':function(){
       age = event.target.value
       years_left = 67-age
-      console.log("lolol");
       Session.set("years_left", years_left)
       Session.set("age", age)
       salary_loss_lifetime = Session.get("salary_loss") * years_left
       Session.set("salary_loss_lifetime", salary_loss_lifetime)
     }
   });
-
-  Template.features.events({
-    'change #salary_range':function() {
-      gross_salary = event.target.value
-      age = document.getElementById('ageInput').value
-      document.getElementById('salaryInput').value = gross_salary
-      setState(gross_salary, age)
-    },
-    'input #age_range':function() {
-      age = event.target.value
-      gross_salary = document.getElementById('salaryInput').value
-      document.getElementById('ageInput').value = age
-      setState(gross_salary, age)
-    }
-  })
 }

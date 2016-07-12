@@ -1,4 +1,4 @@
-import './main.html';
+import './index.html';
 
 taxIndex = function(gross_salary) {
   if (gross_salary <= 50000) {
