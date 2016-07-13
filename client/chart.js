@@ -14,9 +14,9 @@ if (Meteor.isClient) {
       // Gather data:
       net_salary = Math.floor(Session.get("net_salary") / 12)
       payout = Math.floor(Session.get("payout") / 12)
-      insurance_premium = Math.floor(Session.get("insurance_premium") * 50)
-      salary_loss = Math.floor(Session.get("salary_loss") / 12) - insurance_premium
-      console.log(insurance_premium);
+      insurance_payout = Math.floor(Session.get("insurance_payout") / 12)
+      salary_loss = net_salary - payout - insurance_payout//Math.floor((Session.get("salary_loss") - insurance_payout)/12)
+      console.log(insurance_payout);
       series_data = [{
         y: net_salary,
         color: "#b0dfdb"
@@ -70,7 +70,7 @@ if (Meteor.isClient) {
           },
           series: [{
             showInLegend: false,
-            data: [0, insurance_premium, 0]
+            data: [0, insurance_payout, 0]
           }, {
             showInLegend: false,
             data: series_data

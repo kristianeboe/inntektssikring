@@ -35,3 +35,10 @@ if(Meteor.isClient) {
     }
   })
 }
+
+Template.mittLiv.events({
+  "click #toast"() {
+    var $toastContent = $('<div><h1>Hei!</h1><p style="color: white;">Du fant oss før vi er ferdige. Fløg med på Storebrand.no eller vår facebookside for videre oppdateringer"</p></div>');
+    Materialize.toast($toastContent, 5000);
+  }
+})

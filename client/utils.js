@@ -54,7 +54,17 @@ updateState = function() {
   } else {
     payout = (366000*0.66)
   }
-  salary_loss = net_salary-payout
+
+
+  if(insurance_premium < 90) {
+    insurance_payout = 30000
+  } else if(insurance_premium < 200) {
+    insurance_payout = 60000
+  } else {
+    insurance_payout = 90000
+  }
+
+  salary_loss = net_salary-payout-(insurance_payout/12)
   if (salary_loss <0) {
     salary_loss = 0
   }
@@ -68,5 +78,7 @@ updateState = function() {
   salary_loss_lifetime = salary_loss * years_left
   salary_loss_lifetime = salary_loss * years_left
   Session.set("salary_loss_lifetime", salary_loss_lifetime)
+
+  Session.set("insurance_payout", insurance_payout)
 
 }
