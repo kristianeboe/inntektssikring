@@ -14,13 +14,13 @@ Template.features.helpers({
 Template.features.events({
   'input #salary_range':function() {
     gross_salary = event.target.value
-    age = Session.get('age')
-    setState(gross_salary, age)
+    Session.set("gross_salary", gross_salary)
+    updateState()
   },
   'input #age_range':function() {
     age = event.target.value
-    gross_salary = Session.get('gross_salary')
-    setState(gross_salary, age)
+    Session.set("age", age)
+    updateState()
   },
   'click #student': function() {
     gross_salary = 40000
@@ -31,7 +31,7 @@ Template.features.events({
     document.getElementById('ageInput').value = age
     //document.getElementById('age_range').value = age
 
-    setState(gross_salary, age)
+    updateState()
     Session.set("debt", debt)
   },
   'click #nyansatt': function() {
@@ -42,7 +42,7 @@ Template.features.events({
     //document.getElementById('salary_range').value = gross_salary
     document.getElementById('ageInput').value = age
     //document.getElementById('age_range').value = age
-    setState(gross_salary, age)
+    updateState()
     Session.set("debt", 500000)
   },
   'click #arbeidsledig': function() {
@@ -51,14 +51,14 @@ Template.features.events({
     debt = 4000000
     document.getElementById('salaryInput').value = gross_salary
     document.getElementById('ageInput').value = age
-    setState(gross_salary, age)
+    updateState()
     Session.set("debt", debt)
   },
   'click #vgs'() {
     gross_salary = 370000
     age = 30
     debt = 4000000
-    setState(gross_salary, age)
+    updateState()
     document.getElementById('salary_range').value = gross_salary
     document.getElementById('age_range').value = age
   },
@@ -66,7 +66,7 @@ Template.features.events({
     gross_salary = 450000
     age = 23
     debt = 4000000
-    setState(gross_salary, age)
+    updateState()
     document.getElementById('salary_range').value = gross_salary
     document.getElementById('age_range').value = age
   },
@@ -74,7 +74,7 @@ Template.features.events({
     gross_salary = 600000
     age = 26
     debt = 4000000
-    setState(gross_salary, age)
+    updateState()
     document.getElementById('salary_range').value = gross_salary
     document.getElementById('age_range').value = age
   }

@@ -39,8 +39,12 @@ taxIndex = function(gross_salary) {
   return S
 }
 
-setState = function(gross_salary, age) {
-  Session.set("age", age)
+updateState = function() {
+
+  insurance_premium = Session.get("insurance_premium")
+  age = Session.get("age")
+  gross_salary = Session.get("gross_salary")
+
   net_salary = (gross_salary * (1-taxIndex(gross_salary)/100))
   if (gross_salary <50000){
     payout = 210000

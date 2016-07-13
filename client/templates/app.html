@@ -2,7 +2,18 @@
   <div class="container">
     {{> header}}
     <h1>Min inntekt</h1>
-    <h5>Sjekk hvordan inntekten din forandres hvis du blir skadet eller varig syk</h5> {{> features}} {{> chartModule}}
+    <h5>Sjekk hvordan inntekten din forandres hvis du blir skadet eller varig syk</h5>
+    {{> features}}
+    {{> chartModule}}
+    <div class="input-field col s12">
+      <div>Forsikringspremie: {{insurance_premium}}</div>
+       <form action="#">
+         <p class="range-field">
+           <input type="range" id="insurance_range" min="99" max="1000" value="99" />
+         </p>
+       </form>
+    </div>
+
     <section class="row salg">
       <div class="lifetime_loss col s12 l6">
         <div>
@@ -15,6 +26,7 @@
         </div>
       </div>
     </section>
+
   </div>
   <div class="stbcolor-secondary sixth">
     <div class="container">
@@ -23,13 +35,6 @@
         <li>
           <h5>Med inntektssikring har du uansett en fremtid å glede deg til.</h5>
         </li>
-        <!--
-        <li>
-          <p class="flow-text">Blir du arbeidsufør som ung vil du tilbringe resten av livet som minstepensjonist.</p>
-        </li>
-        <li>
-          <p class="flow-text">Hele 40% av oss blir uføre</p>
-        </li> -->
       </ul>
       <div class="actions">
         <div class="center-align">
