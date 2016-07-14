@@ -1,12 +1,12 @@
 Template.features.helpers({
   gross_salary() {
     gross_salary = Session.get('gross_salary')
-    gross_salary = Math.floor(gross_salary)//.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    gross_salary = gross_salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     return gross_salary
   },
   age() {
     age = Session.get('age')
-    age = Math.floor(age)//.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    age = age.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     return age
   }
 

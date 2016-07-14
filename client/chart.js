@@ -12,12 +12,13 @@ if (Meteor.isClient) {
   Template.chartModule.helpers({
     createChart: function() {
       // Gather data:
-      net_salary = Math.floor(Session.get("net_salary") / 12)
-      payout = Math.floor(Session.get("payout") / 12)
-      insurance_payout = Math.floor(Session.get("insurance_payout"))
+      net_salary = Math.floor((Session.get("net_salary") / 12))
+      payout = Math.floor((Session.get("payout") / 12))
+      insurance_payout = Math.floor((Session.get("insurance_payout") / 12))
       console.log(insurance_payout);
-      salary_loss = Math.floor(Session.get("salary_loss")/12)
-      series_data = [{
+      salary_loss = Math.floor((Session.get("salary_loss") / 12))
+
+      base_data = [{
         y: net_salary,
         color: "#e6d1b8"
       }, {
@@ -25,6 +26,17 @@ if (Meteor.isClient) {
         color: "#b0dfdb"
       }, {
         y: salary_loss,
+        color: "#da291c"
+      }]
+
+      insurance_data = [{
+        y: 0,
+        color: "#e6d1b8"
+      }, {
+        y: insurance_payout,
+        color: "#a8c432"
+      }, {
+        y: 0,
         color: "#da291c"
       }]
       // Use Meteor.defer() to craete chart after DOM is ready:
@@ -41,7 +53,7 @@ if (Meteor.isClient) {
             text: "Netto utbetalt i måneden"
           },
           xAxis: {
-            categories: ['Lønn', 'Folketrygd +<br>Forsikring', 'Tap'],
+            categories: ['Lønn', 'Folketrygd +<br>Storebrand', 'Tap'],
             labels: {
               rotation: -45,
               style: {
@@ -61,19 +73,19 @@ if (Meteor.isClient) {
               stacking: 'normal',
               dataLabels: {
                 enabled: true,
-                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'black',
                 style: {
-                  textShadow: "none"
+                  textShadow: 'none'
                 }
               }
             }
           },
           series: [{
             showInLegend: false,
-            data: [0, insurance_payout, 0]
+            data: insurance_data
           }, {
             showInLegend: false,
-            data: series_data
+            data: base_data
           }]
         })
       })

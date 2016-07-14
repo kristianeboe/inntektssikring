@@ -24,18 +24,18 @@ Template.app.helpers({
   salary_loss_lifetime() {
     salary_loss_lifetime = Session.get("salary_loss_lifetime")
     if (salary_loss_lifetime) {
-      salary_loss_lifetime = Math.floor(salary_loss_lifetime)//.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+      salary_loss_lifetime = (salary_loss_lifetime)
     } else {
       salary_loss_lifetime = 0
     }
-    return salary_loss_lifetime
+    return salary_loss_lifetime.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
   },
   insurance_premium() {
-    insurance_premium = Math.floor(Session.get("insurance_premium")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-    return insurance_premium
+    insurance_premium = Math.floor((Session.get("insurance_premium"))/12)
+    return insurance_premium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
   },
   insurance_payout() {
-    insurance_payout = Math.floor(Session.get("insurance_payout")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    insurance_payout = (Session.get("insurance_payout")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     return insurance_payout
   }
 });
