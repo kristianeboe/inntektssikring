@@ -2,22 +2,21 @@
 
   <div class="row">
     <div class="input-field col s12 l6">
-      <div>Årslønn: {{gross_salary}}</div>
-       <form action="#">
-         <p class="range-field">
-           <input type="range" id="salary_range" min="0" max="2000000" value="550000" />
-         </p>
-       </form>
-
-    </div>
-    <div class="input-field col s12 l6">
        <div>Alder: {{age}}</div>
       <form action="#">
         <p class="range-field">
           <input type="range" id="age_range" min="18" max="67" value="26" />
         </p>
       </form>
+    </div>
 
+    <div class="input-field col s12 l6">
+      <div>Årslønn: {{gross_salary}}</div>
+       <form action="#">
+         <p class="range-field">
+           <input type="range" id="salary_range" min="0" max="2000000" value="550000" />
+         </p>
+       </form>
     </div>
   </div>
 </template>

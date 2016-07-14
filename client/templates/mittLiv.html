@@ -1,8 +1,11 @@
 <template name="mittLiv">
-
-  <div class="center-align mittLiv">
-    <h1>Mitt Liv</h1>
-    <img src="/mittLivBilde.jpg" id="mittLivBilde" />
+  <div class="container">
+    <div class="mittLiv">
+      <h1>Mitt Liv</h1>
+      <div class="center-align">
+        <img src="/Mitt Liv-02.png" id="mittLivBilde" />
+      </div>
+    </div>
   </div>
 
 
@@ -13,20 +16,36 @@
       <ul>
         <li>
           <p>
-            <h5>Opptjen aktivitetspoeng som kan gi deg rimeligere forsikring.</h5>
+            <h5>Mitt Liv gir deg oversikt over din helsedata og kommer med anbefalinger tilpasset din profil.</h5>
           </p>
           <p>
-             Poengene kan også brukes til andre formål som for eksempel å ta med en du er glad i på kino.
+            Applikasjonen gir deg muligheten til å påvirke prisen på din forsikring gjennom trening.
+            Jo mer aktiv du er, desto flere fordeler får du. Du kan også bruke poengene på andre ting, som f.eks. å ta med en du er glad i på kino.
           </p>
         </li>
       </ul>
       <div class="actions">
         <div class="center-align">
-          <a class="stb-btn" id="toast">Last ned og prøv</a>
+          <a class="stb-btn" id="download">Last ned og prøv</a>
         </div>
       </div>
       <p class="footer">
       </p>
+      <div id="sign-upDiv" style="display:none">
+        <h1>Hei!</h1>
+        <p>
+          Du fant oss før vi er ferdige. Skriv inn navn og telefonnummer, så sender vi deg sms når vi er ferdige.
+        </p>
+      <form class="sign-up">
+
+        <input type="text" name="name" placeholder="Navn" />
+        <input type="text" name="phone" placeholder="Telefonnummer" />
+        <input class="stb-btn" type="submit" value="Submit" id="sign-upBtn">
+      </form>
+    </div>
+    <div id="thank-you" style="display:none">
+      <h1>Takk!</h1>
+    </div>
     </div>
   </div>
 </template>

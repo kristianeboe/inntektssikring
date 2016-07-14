@@ -1,21 +1,17 @@
 <template name="app">
   <div class="container">
     {{> header}}
+    <div class="sliders" id="red"></div>
     <h1>Min inntekt</h1>
     <h5>Sjekk hvordan inntekten din forandres hvis du blir skadet eller varig syk</h5>
     {{> features}}
-    {{> chartModule}}
-    <div class="input-field col s12">
-      <div>Forsikringspremie: {{insurance_premium}}</div>
-       <form action="#">
-         <p class="range-field">
-           <input type="range" id="insurance_range" min="50" max="300" value="99" />
-         </p>
-       </form>
+    <div>
+      <h1 class="truncate">{{insurance_premium_calc}}</h1>
     </div>
 
+    {{> chartModule}}
     <section class="row salg">
-      <div class="lifetime_loss col s12 l6">
+      <div class="lifetime_loss col s6">
         <div>
           <div>
             <h5>Estimert samlet inntekt du mister på livstid:</h5>
@@ -25,7 +21,26 @@
           </div>
         </div>
       </div>
+      <div class="lifetime_loss col s6">
+        <div>
+          <div>
+            <h5>Forsikringspris</h5><br /><br />
+          </div>
+          <div>
+            <h1 class="truncate">{{insurance_premium}}</h1>
+          </div>
+        </div>
+      </div>
+      <div>Forsikringsutbetaling i året: {{insurance_payout}}</div>
+     <form action="#">
+       <p class="range-field">
+         <input type="range" id="insurance_payout_range" min="30000" max="200000" value="30000" />
+       </p>
+     </form>
     </section>
+
+
+
 
   </div>
   <div class="stbcolor-secondary sixth">
@@ -51,16 +66,16 @@
       </p>
     </div>
   </div>
-  {{> mittLiv}}
+  <div> <!--style="display:none;"-->
+    {{> mittLiv}}
+  </div>
 
 
 
 </template>
 
 <template name="header">
-  <div class="logo col s12">
-    <div class="valign-wrapper">
-      <img src="/bigbrand_logo.png" /> Storebrand
-    </div>
+  <div class="right-align">
+    <img src="/StorebrandBeta.png" id="stb-logo" />
   </div>
 </template>

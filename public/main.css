@@ -11,25 +11,16 @@ h5 {
   padding-top: 20px;
 }
 
-.logo_powered {
-     position: fixed;
-     top: 0;
-     right: 0;
-}
-
 .flow-text {
   font-size: 1em;
 }
 
-.logo {
-  padding-left: 40%;
+#stb-logo {
+  height: auto;
+  width: auto;
+  max-width: 250px;
+  max-height: 100px;
   padding-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-  .logo {
-    padding-left: 25%;
-  }
 }
 
 .mittLiv {
@@ -46,4 +37,12 @@ h5 {
 
 .paratest {
   color: white;
+}
+
+#disclaimer {
+  height: auto;
+  width: auto;
+  max-width: 320px;
+  max-height: 200px;
+  padding-bottom: 20px;
 }

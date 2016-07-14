@@ -14,12 +14,12 @@ if (Meteor.isClient) {
       // Gather data:
       net_salary = Math.floor(Session.get("net_salary") / 12)
       payout = Math.floor(Session.get("payout") / 12)
-      insurance_payout = Math.floor(Session.get("insurance_payout") / 12)
-      salary_loss = net_salary - payout - insurance_payout//Math.floor((Session.get("salary_loss") - insurance_payout)/12)
+      insurance_payout = Math.floor(Session.get("insurance_payout"))
       console.log(insurance_payout);
+      salary_loss = Math.floor(Session.get("salary_loss")/12)
       series_data = [{
         y: net_salary,
-        color: "#b0dfdb"
+        color: "#e6d1b8"
       }, {
         y: payout,
         color: "#b0dfdb"
@@ -27,8 +27,6 @@ if (Meteor.isClient) {
         y: salary_loss,
         color: "#da291c"
       }]
-
-
       // Use Meteor.defer() to craete chart after DOM is ready:
       Meteor.defer(function() {
         var Highcharts = require('highcharts');
@@ -43,10 +41,12 @@ if (Meteor.isClient) {
             text: "Netto utbetalt i måneden"
           },
           xAxis: {
-            categories: ['Lønn', 'Trygd', 'Tap'],
+            categories: ['Lønn', 'Folketrygd +<br>Forsikring', 'Tap'],
             labels: {
+              rotation: -45,
               style: {
-                fontSize: '15px'
+                fontSize: '15px',
+                //width: '20px'
               }
             }
           },
@@ -63,7 +63,7 @@ if (Meteor.isClient) {
                 enabled: true,
                 color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
                 style: {
-                  textShadow: '0 0 3px black'
+                  textShadow: "none"
                 }
               }
             }

@@ -41,9 +41,15 @@ taxIndex = function(gross_salary) {
 
 updateState = function() {
 
-  insurance_premium = Session.get("insurance_premium")
   age = Session.get("age")
   gross_salary = Session.get("gross_salary")
+  insurance_payout = Session.get("insurance_payout")
+  insurance_premium = insurance_premium_calculation(insurance_payout, age, "bsc")
+
+  if(insurance_payout > gross_salary*0.19) {
+    insurance_payout = gross_salary*0.19
+  }
+  insurance_payout = insurance_payout*0.95
 
   net_salary = (gross_salary * (1-taxIndex(gross_salary)/100))
   if (gross_salary <50000){
@@ -55,16 +61,7 @@ updateState = function() {
     payout = (366000*0.66)
   }
 
-
-  if(insurance_premium < 90) {
-    insurance_payout = 30000
-  } else if(insurance_premium < 200) {
-    insurance_payout = 60000
-  } else {
-    insurance_payout = 90000
-  }
-
-  salary_loss = net_salary-payout-(insurance_payout/12)
+  salary_loss = net_salary-payout-insurance_payout
   if (salary_loss <0) {
     salary_loss = 0
   }
@@ -76,9 +73,9 @@ updateState = function() {
   years_left = 67-age
   Session.set("years_left", years_left)
   salary_loss_lifetime = salary_loss * years_left
-  salary_loss_lifetime = salary_loss * years_left
   Session.set("salary_loss_lifetime", salary_loss_lifetime)
 
   Session.set("insurance_payout", insurance_payout)
 
+  Session.set("insurance_premium", insurance_premium)
 }

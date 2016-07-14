@@ -1,44 +1,83 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
-
+import {
+  Template
+} from 'meteor/templating';
+import {
+  ReactiveVar
+} from 'meteor/reactive-var';
+import {
+  InterestedPeople
+} from '../imports/api/database.js';
 import './index.html';
 
-if(Meteor.isClient) {
-  Template.app.onCreated(function salary_inputOnCreated() {
-    Session.set("gross_salary", 550000)
-    Session.set("age", 26)
-    Session.set("insurance_premium", 99)
+
+Template.app.onCreated(function(){
+  Session.set("gross_salary", 550000)
+  Session.set("age", 26)
+  Session.set("insurance_payout", 30000)
+  updateState()
+});
+
+Template.app.helpers({
+  interestedPeople() {
+    return InterestedPeople.find({});
+  },
+  salary_loss_lifetime() {
+    salary_loss_lifetime = Session.get("salary_loss_lifetime")
+    if (salary_loss_lifetime) {
+      salary_loss_lifetime = Math.floor(salary_loss_lifetime)//.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    } else {
+      salary_loss_lifetime = 0
+    }
+    return salary_loss_lifetime
+  },
+  insurance_premium() {
+    insurance_premium = Math.floor(Session.get("insurance_premium")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    return insurance_premium
+  },
+  insurance_payout() {
+    insurance_payout = Math.floor(Session.get("insurance_payout")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    return insurance_payout
+  }
+});
+
+Template.app.events({
+  "input #insurance_payout_range" () {
+    insurance_payout = event.target.value
+    Session.set("insurance_payout", insurance_payout)
     updateState()
-  });
+  }
+})
 
-  Template.app.helpers({
-    salary_loss_lifetime: function() {
-      salary_loss_lifetime = Session.get("salary_loss_lifetime")
-      if(salary_loss_lifetime) {
-        salary_loss_lifetime = Math.floor(salary_loss_lifetime).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-      } else {
-        salary_loss_lifetime = 0
-      }
-      return salary_loss_lifetime
-    },
-    insurance_premium() {
-      insurance_premium = Session.get("insurance_premium")
-      return insurance_premium
-    }
-  });
-
-  Template.app.events({
-    "input #insurance_range"() {
-      insurance_premium = event.target.value
-      Session.set("insurance_premium", insurance_premium)
-      updateState()
-    }
-  })
-}
 
 Template.mittLiv.events({
-  "click #toast"() {
-    var $toastContent = $('<div><h1>Hei!</h1><p style="color: white;">Du fant oss før vi er ferdige. Fløg med på Storebrand.no eller vår facebookside for videre oppdateringer"</p></div>');
-    Materialize.toast($toastContent, 5000);
+  "click #download" () {
+    $("#sign-upDiv").show();
+    $("html, body").animate({
+      scrollTop: $(document).height()
+    }, "slow");
+  },
+  'click #sign-upBtn'(event) {
+    event.preventDefault();
+
+    // Get value from form element
+    form = event.currentTarget.form
+
+    const name = form.children[0].value;
+    const phone = form.children[1].value;
+
+    // Insert a task into the collection
+    InterestedPeople.insert({
+      name: name,
+      phone: phone,
+      createdAt: new Date(), // current time
+    });
+
+    // Clear form
+    form.children[0].value = '';
+    form.children[1].value = '';
+
+    $("#sign-upDiv").hide();
+    $("#download").hide();
+    $("#thank-you").show();
   }
 })
