@@ -1,12 +1,19 @@
 <template name="app">
   <div class="container">
     {{> header}}
-    <h1>Min inntekt</h1>
-    <h5>Sjekk hvordan inntekten din forandres hvis du blir skadet eller varig syk</h5>
+    <h1>Sikre inntekten din</h1>
+    <h5>Her kan du se hvordan inntekten din blir påvirket hvis du ikke kan jobbe</h5>
     {{> features}}
 
     {{> chartModule}}
+    <div>Velg månedlig forsikringsutbetaling for å dekke diit tap: {{insurance_payout}} kr</div>
+   <form action="#">
+     <p class="range-field">
+       <input type="range" id="insurance_payout_range" min="0" max="240" value="86" />
+     </p>
+   </form>
     <section class="row salg">
+      <!--
       <div class="lifetime_loss col-xs-12 col-sm-6">
         <div>
           <div>
@@ -17,6 +24,7 @@
           </div>
         </div>
       </div>
+    -->
       <div class="lifetime_loss col-xs-12 col-sm-6">
         <div>
           <div>
@@ -27,12 +35,6 @@
           </div>
         </div>
       </div>
-      <div>Forsikringsutbetaling i året: {{insurance_payout}}kr</div>
-     <form action="#">
-       <p class="range-field">
-         <input type="range" id="insurance_payout_range" min="30000" max="200000" value="86556" />
-       </p>
-     </form>
     </section>
 
 
@@ -49,7 +51,7 @@
       </ul>
       <div class="actions">
         <div class="center-align">
-          <a class="stb-btn" target="#" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Sikre inntekten din nå</a>
+          <a class="stb-btn" target="#" href="https://www2.storebrand.no/skade/ufore/kundeinfo">Sikre inntekten din nå</a>
           <!--
         <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=@storebrand%20#inntektssikring" data-size="large">
           Tweet

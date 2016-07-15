@@ -13,7 +13,7 @@ import './index.html';
 Template.app.onCreated(function(){
   Session.set("gross_salary", 550000)
   Session.set("age", 26)
-  Session.set("insurance_payout", 86556)
+  Session.set("insurance_payout", 86000)
   console.log(Session.get("insurance_payout"));
   updateState()
 });
@@ -36,7 +36,8 @@ Template.app.helpers({
     return insurance_premium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
   },
   insurance_payout() {
-    insurance_payout = (Session.get("insurance_payout")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    insurance_payout = Math.floor(Session.get("insurance_payout")/12)
+    insurance_payout = insurance_payout.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     return insurance_payout
   }
 });
@@ -44,6 +45,7 @@ Template.app.helpers({
 Template.app.events({
   "input #insurance_payout_range" () {
     insurance_payout = event.target.value
+    insurance_payout = insurance_payout*1000
     Session.set("insurance_payout", insurance_payout)
     updateState()
   }

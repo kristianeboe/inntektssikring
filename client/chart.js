@@ -14,7 +14,8 @@ if (Meteor.isClient) {
       // Gather data:
       net_salary = Math.floor((Session.get("net_salary") / 12))
       payout = Math.floor((Session.get("payout") / 12))
-      insurance_payout = Math.floor((Session.get("insurance_payout") / 12))
+      insurance_payout = Math.floor((Session.get("insurance_payout")*0.95 / 12))
+      console.log(insurance_payout);
       salary_loss = Math.floor((Session.get("salary_loss") / 12))
 
       base_data = [{
@@ -49,10 +50,10 @@ if (Meteor.isClient) {
             type: 'column'
           },
           title: {
-            text: "Netto utbetalt i måneden"
+            text: "Utbetalinger i måneden etter skatt"
           },
           xAxis: {
-            categories: ['Dagens<br>lønn', 'Folketrygd+<br>forsikring', 'Tapt<br>inntekt'],
+            categories: ['Dagens<br>lønn', 'Nav+<br>Storebrand', 'Tapt<br>inntekt'],
             labels: {
               style: {
                 fontSize: '15px',
@@ -62,6 +63,9 @@ if (Meteor.isClient) {
           },
           yAxis: {
             min: 0,
+            labels: {
+              enabled: false
+            },
             title: {
               text: ""
             },
@@ -71,7 +75,7 @@ if (Meteor.isClient) {
               stacking: 'normal',
               dataLabels: {
                 enabled: true,
-                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'black',
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
                 style: {
                   textShadow: 'none'
                 }
@@ -79,7 +83,9 @@ if (Meteor.isClient) {
             }
           },
           series: [{
-            showInLegend: false,
+            showInLegend: true,
+            name: "Utbetaling av Storebrand",
+            color: "#a8c432",
             data: insurance_data
           }, {
             showInLegend: false,
