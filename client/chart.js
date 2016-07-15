@@ -15,7 +15,6 @@ if (Meteor.isClient) {
       net_salary = Math.floor((Session.get("net_salary") / 12))
       payout = Math.floor((Session.get("payout") / 12))
       insurance_payout = Math.floor((Session.get("insurance_payout") / 12))
-      console.log(insurance_payout);
       salary_loss = Math.floor((Session.get("salary_loss") / 12))
 
       base_data = [{
@@ -30,16 +29,16 @@ if (Meteor.isClient) {
       }]
 
       insurance_data = [{
-        y: 0,
-        color: "#e6d1b8"
-      }, {
-        y: insurance_payout,
-        color: "#a8c432"
-      }, {
-        y: 0,
-        color: "#da291c"
-      }]
-      // Use Meteor.defer() to craete chart after DOM is ready:
+          y: 0,
+          color: "#e6d1b8"
+        }, {
+          y: insurance_payout,
+          color: "#a8c432"
+        }, {
+          y: 0,
+          color: "#da291c"
+        }]
+        // Use Meteor.defer() to craete chart after DOM is ready:
       Meteor.defer(function() {
         var Highcharts = require('highcharts');
         // Create standard Highcharts chart with options:
@@ -53,9 +52,8 @@ if (Meteor.isClient) {
             text: "Netto utbetalt i måneden"
           },
           xAxis: {
-            categories: ['Lønn', 'Folketrygd +<br>Storebrand', 'Tap'],
+            categories: ['Dagens<br>lønn', 'Folketrygd+<br>forsikring', 'Tapt<br>inntekt'],
             labels: {
-              rotation: -45,
               style: {
                 fontSize: '15px',
                 //width: '20px'
@@ -86,7 +84,10 @@ if (Meteor.isClient) {
           }, {
             showInLegend: false,
             data: base_data
-          }]
+          }],
+          credits: {
+            enabled: false
+          },
         })
       })
     }

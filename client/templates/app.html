@@ -1,40 +1,36 @@
 <template name="app">
   <div class="container">
     {{> header}}
-    <div class="sliders" id="red"></div>
     <h1>Min inntekt</h1>
     <h5>Sjekk hvordan inntekten din forandres hvis du blir skadet eller varig syk</h5>
     {{> features}}
-    <div>
-      <h1 class="truncate">{{insurance_premium_calc}}</h1>
-    </div>
 
     {{> chartModule}}
     <section class="row salg">
-      <div class="lifetime_loss col s6">
+      <div class="lifetime_loss col-xs-12 col-sm-6">
         <div>
           <div>
-            <h5>Estimert samlet inntekt du mister på livstid:</h5>
+            <h5>Inntekt mistet på livstid:</h5>
           </div>
           <div>
-            <h1 class="truncate">{{salary_loss_lifetime}}</h1>
+            <h1 class="truncate">{{salary_loss_lifetime}} kr</h1>
           </div>
         </div>
       </div>
-      <div class="lifetime_loss col s6">
+      <div class="lifetime_loss col-xs-12 col-sm-6">
         <div>
           <div>
-            <h5>Forsikringspris</h5><br /><br />
+            <h5>Forsikringspris per måned:</h5>
           </div>
           <div>
-            <h1 class="truncate">{{insurance_premium}}</h1>
+            <h1 class="truncate">{{insurance_premium}} kr</h1>
           </div>
         </div>
       </div>
-      <div>Forsikringsutbetaling i året: {{insurance_payout}}</div>
+      <div>Forsikringsutbetaling i året: {{insurance_payout}}kr</div>
      <form action="#">
        <p class="range-field">
-         <input type="range" id="insurance_payout_range" min="30000" max="200000" value="30000" />
+         <input type="range" id="insurance_payout_range" min="30000" max="200000" value="86556" />
        </p>
      </form>
     </section>

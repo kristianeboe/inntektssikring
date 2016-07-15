@@ -13,7 +13,8 @@ import './index.html';
 Template.app.onCreated(function(){
   Session.set("gross_salary", 550000)
   Session.set("age", 26)
-  Session.set("insurance_payout", 30000)
+  Session.set("insurance_payout", 86556)
+  console.log(Session.get("insurance_payout"));
   updateState()
 });
 
@@ -66,11 +67,15 @@ Template.mittLiv.events({
     const phone = form.children[1].value;
 
     // Insert a task into the collection
-    InterestedPeople.insert({
-      name: name,
-      phone: phone,
-      createdAt: new Date(), // current time
-    });
+    if (phone != "") {
+      InterestedPeople.insert({
+        name: name,
+        phone: phone,
+        createdAt: new Date(), // current time
+      });
+    }
+
+
 
     // Clear form
     form.children[0].value = '';

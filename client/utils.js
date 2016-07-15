@@ -80,6 +80,7 @@ updateState = function() {
   years_left = Math.floor(years_left)
   salary_loss_lifetime = Math.floor(salary_loss_lifetime)
   insurance_payout = Math.floor(insurance_payout)
+  console.log(insurance_payout);
   insurance_premium = Math.floor(insurance_premium)
 
   Session.set("gross_salary", gross_salary)
