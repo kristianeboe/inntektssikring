@@ -37,6 +37,10 @@ h5 {
   padding-top: 20px;
 }
 
+.range-field-input {
+  height: 50px;
+  margin: 0px;
+}
 
 #mittLivBilde {
     height: auto;
