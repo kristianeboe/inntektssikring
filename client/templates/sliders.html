@@ -1,0 +1,109 @@
+<template name="sliders">
+  <div class="input-field col s12 l6">
+    <div>Alder: {{age}}</div>
+    <div id="ageSlider"></div>
+  </div>
+
+  <div class="input-field col s12 l6">
+    <div>Årslønn: {{gross_salary}}</div>
+    <div id="salarySlider"></div>
+  </div>
+
+  <div>Ønsket forsikringspris per måned: {{insurance_payout}} kr</div>
+  <div id="priceSlider"></div>
+  <script>
+    var range_all_sliders = {
+      'min': [280000],
+      'max': [1000000]
+    };
+
+    var ageSlider = document.getElementById('ageSlider');
+    var salarySlider = document.getElementById('salarySlider');
+    var priceSlider = document.getElementById('priceSlider');
+
+    noUiSlider.create(ageSlider, {
+      start: 35,
+      range: {
+        'min': 18,
+        'max': 67
+      }
+    });
+
+    function filter5000(value, type) {
+      return value % 10000 ? 2 : 1;
+    }
+
+    noUiSlider.create(salarySlider, {
+      range: range_all_sliders,
+      start: 280000,
+      pips: {
+        mode: 'steps',
+        density: 100,
+        filter: filter5000,
+        format: wNumb({
+          decimals: 0,
+          postfix: 'kr'
+        })
+      }
+    });
+  </script>
+  <div class="example">
+    <section>
+
+    </section>
+    <select id="input-select"></select>
+    <div id="html5"></div>
+    <input id="input-number" />
+
+  </div>
+
+  <script>
+    var select = document.getElementById('input-select');
+
+    // Append the option elements
+    for (var i = -20; i <= 40; i++) {
+
+      var option = document.createElement("option");
+      option.text = i;
+      option.value = i;
+
+      select.appendChild(option);
+    }
+  </script>
+  <script>
+    var html5Slider = document.getElementById('html5');
+
+    noUiSlider.create(html5Slider, {
+      start: 20,
+      range: {
+        'min': 18,
+        'max': 67
+      }
+    });
+  </script>
+
+  <script>
+    var inputNumber = document.getElementById('input-number');
+
+    html5Slider.noUiSlider.on('update', function(values, handle) {
+
+      var value = values[handle];
+
+      if (handle) {
+        value = value;
+      } else {
+        value = Math.round(value);
+      }
+
+      Session.set("age", value)
+    });
+
+    select.addEventListener('change', function() {
+      html5Slider.noUiSlider.set([this.value, null]);
+    });
+
+    inputNumber.addEventListener('change', function() {
+      html5Slider.noUiSlider.set([null, this.value]);
+    });
+  </script>
+</template>

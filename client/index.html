@@ -1,12 +1,17 @@
 <head>
   <title>Inntektssikring</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="//elements.storebrand.no/storebrand.ny/0.92/css/stb-all.min.css">
   <link rel="stylesheet" href="main.css">
+  
+  <link rel="stylesheet" href="nouislider.min.css">
+  <link rel="stylesheet" href="nouislider.pips.css">
+  <script type="text/javascript" src="nouislider.min.js"></script>
 
   <script src="https://cdn.optimizely.com/js/6460060019.js"></script>
 
@@ -78,23 +83,18 @@
 
   {{> app}}
   <div class="center-align">
-    <img src="/Disclaimer.jpg" id="disclaimer"/>
+    <img src="/Disclaimer.jpg" id="disclaimer" />
   </div>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script-->
   <script type="text/javascript" src="//elements.storebrand.no/storebrand.ny/0.92/js/stb-all.min.js"></script>
 </body>
 
 
-
-<template name="archetypes">
-  <div class="row center-align">
-    <button class="stb-btn" id="student">Student</button>
-    <button class="stb-btn" id="nyansatt">Nyansatt</button>
-  </div>
-</template>
-
-
 <template name="chartModule">
   <div id="chart">{{createChart}}</div>
+</template>
+
+<template name="pieChartModule">
+  <div id="pieChart">{{createChart}}</div>
 </template>

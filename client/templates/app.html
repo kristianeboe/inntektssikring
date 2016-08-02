@@ -3,15 +3,12 @@
     {{> header}}
     <h1>Sikre inntekten din</h1>
     <h5>Her kan du se hvordan inntekten din blir påvirket hvis du ikke kan jobbe</h5>
-    {{> features}}
 
-    {{> chartModule}}
-    <div>Velg månedlig forsikringsutbetaling for å dekke diit tap: {{insurance_payout}} kr</div>
-   <form action="#">
-     <p class="range-field">
-       <input class="range-field-input" type="range" id="insurance_payout_range" min="0" max="240" value="86" />
-     </p>
-   </form>
+    {{>features}}
+
+    <section>
+      {{> pieChartModule}}
+    </section>
     <section class="row salg">
       <!--
       <div class="lifetime_loss col-xs-12 col-sm-6">

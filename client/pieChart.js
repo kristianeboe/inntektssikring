@@ -9,7 +9,7 @@ import './index.html';
 
 if (Meteor.isClient) {
 
-  Template.chartModule.helpers({
+  Template.pieChartModule.helpers({
     createChart: function() {
       // Gather data:
       net_salary = Math.floor((Session.get("net_salary") / 12))
@@ -17,25 +17,17 @@ if (Meteor.isClient) {
       insurance_payout = Math.floor((Session.get("insurance_payout")*0.95 / 12))
       salary_loss = Math.floor((Session.get("salary_loss") / 12))
 
-      base_data = [{
-        y: net_salary,
-        color: "#e6d1b8"
-      }, {
-        y: payout,
-        color: "#b0dfdb"
-      }, {
-        y: salary_loss,
-        color: "#da291c"
-      }]
-
       insurance_data = [{
-          y: 0,
+          name: "NAV",
+          y: payout,
           color: "#e6d1b8"
         }, {
+          name: "Storebrand",
           y: insurance_payout,
           color: "#a8c432"
         }, {
-          y: 0,
+          name: "Tap",
+          y: salary_loss,
           color: "#da291c"
         }]
         // Use Meteor.defer() to craete chart after DOM is ready:
@@ -43,10 +35,10 @@ if (Meteor.isClient) {
         var Highcharts = require('highcharts');
         // Create standard Highcharts chart with options:
 
-        Highcharts.chart('chart', {
+        Highcharts.chart('pieChart', {
           chart: {
             height: 300,
-            type: 'column'
+            type: 'pie'
           },
           title: {
             text: "Utbetalinger i måneden etter skatt"
@@ -86,9 +78,6 @@ if (Meteor.isClient) {
             name: "Utbetaling av Storebrand",
             color: "#a8c432",
             data: insurance_data
-          }, {
-            showInLegend: false,
-            data: base_data
           }],
           credits: {
             enabled: false

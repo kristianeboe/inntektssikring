@@ -77,7 +77,6 @@ updateState = function() {
   } else if (insurance_payout > 240000) {
     insurance_payout = 240000
   }
-  console.log(insurance_payout);
 
   if (net_payout + insurance_payout > net_salary) {
     insurance_payout = net_salary-net_payout
@@ -85,7 +84,6 @@ updateState = function() {
       insurance_payout = 0
     }
   }
-  console.log(insurance_payout);
 
   salary_loss = net_salary - net_payout - insurance_payout
   if (salary_loss < 0) {

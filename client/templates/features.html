@@ -1,22 +1,43 @@
 <template name="features">
-
   <div class="row">
-    <div class="input-field col s12 l6">
-       <div>Alder: {{age}} år</div>
-      <form action="#">
-        <p class="range-field">
-          <input class="range-field-input" type="range" id="age_range" min="18" max="67" value="26" />
-        </p>
-      </form>
+    <div class="input-field col-s-12 col-md-6">
+      <div class="input-group">
+        <div class="input-group-addon">Alder</div>
+        <input value="{{age}}" id="age_input" type="tel" class="form-control">
+      </div>
     </div>
 
-    <div class="input-field col s12 l6">
-      <div>Årslønn: {{gross_salary}} kr</div>
-       <form action="#">
-         <p class="range-field">
-           <input class="range-field-input" type="range" id="salary_range" min="0" max="1000000" value="550000" />
-         </p>
-       </form>
+    <div class="input-field col-s-12 col-md-6">
+      <div class="input-group">
+        <div class="input-group-addon">Årslønn</div>
+        <input value="{{gross_salary}}" id="gross_salary_input" type="tel" class="form-control">
+        <div class="input-group-addon">kr</div>
+      </div>
     </div>
+
   </div>
+
+  <div>Ønsket forsikringspris per måned: {{insurance_payout}} kr</div>
+  <div id="insurance_slider"></div>
+
+  <script type="text/javascript">
+    noUiSlider.create(insurance_slider, {
+      start: [10000],
+      range: {
+        'min': [0],
+        'max': [90000]
+      },
+      step: 10000
+    });
+
+    insurance_slider = document.getElementById("insurance_slider")
+
+    insurance_slider.noUiSlider.on('update', function(values, handle) {
+      value = values[handle];
+
+      Session.set("insurance_payout", value)
+      updateState()
+    });
+  </script>
+
 </template>
