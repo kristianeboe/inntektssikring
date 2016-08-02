@@ -1,31 +1,36 @@
 <template name="features">
-  <div class="row">
-    <div class="input-field col-s-12 col-md-6">
-      <div class="input-group">
-        <div class="input-group-addon">Alder</div>
-        <input value="{{age}}" id="age_input" type="tel" class="form-control">
+
+
+    <div class="container-fluid features">
+
+
+    <div class="row">
+      <div class="input-field col-xs-5 col-md-6">
+        <div class="input-group" id="input-group-age">
+          <div class="input-group-addon">Alder</div>
+          <input value="{{age}}" id="age_input" type="tel" class="form-control">
+        </div>
+      </div>
+
+      <div class="input-field col-xs-7 col-md-6">
+        <div class="input-group" id="input-group-gross_salary">
+          <div class="input-group-addon">Brutto</div>
+          <input value="{{gross_salary}}" id="gross_salary_input" type="tel" class="form-control">
+          <div class="input-group-addon">kr</div>
+        </div>
       </div>
     </div>
 
-    <div class="input-field col-s-12 col-md-6">
-      <div class="input-group">
-        <div class="input-group-addon">Årslønn</div>
-        <input value="{{gross_salary}}" id="gross_salary_input" type="tel" class="form-control">
-        <div class="input-group-addon">kr</div>
-      </div>
+    <div>Ønsket forsikringspris per måned:
+      <h1 class="truncate">{{insurance_premium}} kr</h1></div>
+    <div id="insurance_slider"></div>
     </div>
-
-  </div>
-
-  <div>Ønsket forsikringspris per måned: {{insurance_payout}} kr</div>
-  <div id="insurance_slider"></div>
-
   <script type="text/javascript">
     noUiSlider.create(insurance_slider, {
       start: [10000],
       range: {
         'min': [0],
-        'max': [90000]
+        'max': [Session.get("net_salary")-Session.get("payout")]
       },
       step: 10000
     });

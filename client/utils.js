@@ -44,7 +44,12 @@ updateState = function() {
   age = Session.get("age")
   gross_salary = Session.get("gross_salary")
   insurance_payout = Session.get("insurance_payout")
-  insurance_premium = insurance_premium_calculation(insurance_payout, age, "bsc")
+  console.log(insurance_payout);
+  if (insurance_payout == 0) {
+    insurance_premium = 0
+  } else {
+    insurance_premium = insurance_premium_calculation(insurance_payout, age, "bsc")
+  }
 
   net_salary = (gross_salary * (1 - taxIndex(gross_salary) / 100))
 
@@ -78,12 +83,14 @@ updateState = function() {
     insurance_payout = 240000
   }
 
-  if (net_payout + insurance_payout > net_salary) {
+  if ((+net_payout + +insurance_payout) > net_salary) {
     insurance_payout = net_salary-net_payout
     if (insurance_payout < 0 ) {
       insurance_payout = 0
     }
   }
+
+
 
   salary_loss = net_salary - net_payout - insurance_payout
   if (salary_loss < 0) {

@@ -16,7 +16,6 @@ if (Meteor.isClient) {
       payout = Math.floor((Session.get("payout") / 12))
       insurance_payout = Math.floor((Session.get("insurance_payout")*0.95 / 12))
       salary_loss = Math.floor((Session.get("salary_loss") / 12))
-
       insurance_data = [{
           name: "NAV",
           y: payout,

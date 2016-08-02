@@ -6,63 +6,65 @@ Template.features.helpers({
   },
   age() {
     age = Session.get('age')
-    age = age.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    age = age.toString()
     return age
   },
   insurance_payout() {
-    insurance_payout = Math.floor(Session.get("insurance_payout")/12)
+    insurance_payout = Math.floor(Session.get("insurance_payout") / 12)
     insurance_payout = insurance_payout.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     return insurance_payout
-  }
+  },
+  insurance_premium() {
+    insurance_premium = Math.floor((Session.get("insurance_premium"))/12)
+    return insurance_premium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+  },
 
 })
 Template.features.events({
-  'input #gross_salary_input':function() {
-    gross_salary = event.target.value
-    Session.set("gross_salary", gross_salary)
-    updateState()
+  'keyup #gross_salary_input': function() {
+    gross_salary = event.target.value.replace(" ", "");
+    gross_salary_input = $("#input-group-gross_salary")
+    if (gross_salary > 260000 && gross_salary < 1500000) {
+      gross_salary_input.removeClass("has-error")
+      gross_salary_input.addClass("has-success")
+      Session.set("gross_salary", gross_salary)
+      insurance_slider = document.getElementById("insurance_slider")
+      insurance_slider.noUiSlider.updateOptions({
+        range: {
+          'min': 0,
+          'max': Session.get("net_salary") - Session.get("payout")
+        }
+      })
+
+      updateState()
+    }
   },
-  'input #age_input': function() {
+  'blur #gross_salary_input': function() {
+    gross_salary = event.target.value.replace(" ", "");
+    if (gross_salary <= 260000 || gross_salary >= 2200000) {
+      $("#input-group-gross_salary").addClass("has-error")
+    }
+  },
+  'keyup #age_input': function() {
     age = event.target.value
-    if (age >17 && age <68) {
+    age_input = $("#input-group-age")
+    if (age > 17 && age < 68) {
+      age_input.removeClass("has-error")
+      age_input.addClass("has-success")
       Session.set("age", age)
       updateState()
     }
   },
-  'click #student': function() {
-    gross_salary = 50000
-    age = 21
-    debt = 300000
-    Session.set("age", age)
-    Session.set("gross_salary", gross_salary)
-    Session.set("debt", debt)
-    updateState()
-    $(".input_fields").slideDown()
-   },
-   'click #nyansatt': function() {
-    gross_salary = 500000
-    age = 26
-    debt = 500000
-    Session.set("age", age)
-    Session.set("gross_salary", gross_salary)
-    Session.set("debt", debt)
-    updateState()
-    $(".input_fields").slideDown()
-   },
-   'click #dreven': function() {
-    gross_salary = 750000
-    age = 35
-    debt = 4000000
-    Session.set("age", age)
-    Session.set("gross_salary", gross_salary)
-    Session.set("debt", debt)
-    updateState()
-    $(".input_fields").slideDown()
-   },
+  'blur #age_input': function() {
+    age = event.target.value
+    if (age < 18 || age > 67) {
+      $("#input-group-age").addClass("has-error")
+    }
+  }
 })
 
 Template.sliders.events({
-  'set #ageSlider':function() {
+  'set #ageSlider': function() {
     age = event.target.value
     Session.set("age", age)
     updateState()
