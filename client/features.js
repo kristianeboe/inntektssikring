@@ -30,6 +30,7 @@ Template.features.events({
       gross_salary_input.removeClass("has-error")
       gross_salary_input.addClass("has-success")
       Session.set("gross_salary", gross_salary)
+      updateState()
       console.log("updating slider now");
       insurance_slider = document.getElementById("insurance_slider")
       insurance_slider.noUiSlider.updateOptions({
@@ -40,7 +41,7 @@ Template.features.events({
       })
       console.log("updated");
 
-      updateState()
+
     }
   },
   'blur #gross_salary_input': function() {
