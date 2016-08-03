@@ -11,6 +11,7 @@
     {{> pieChartModule}}
   </section>
 
+  {{> didYouKnow}}
 
   <div class="stbcolor-secondary sixth">
     <div class="container">
@@ -37,6 +38,42 @@
 
 
 
+</template>
+
+<template name="didYouKnow">
+  <div>
+    <b>Viste du at...</b>
+  </div>
+  <div>
+    Den månedlige prisen du valgte tilsvarer for eksempel
+  </div>
+  <div class="container">
+    {{#if oneCoffee}}
+    <span>1 kaffe</span>
+    {{else}}
+      {{#if twoCoffees}}
+      <span>2 kaffe</span>
+      {{else}}
+        {{#if threeCoffees}}
+        <span>3 kaffe</span>
+        {{else}}
+          {{#if fourCoffees}}
+          <span>4 kaffe</span>
+          {{else}}
+            {{#if fiveCoffees}}
+            <span>5 kaffe</span>
+            {{else}}
+              {{#if moreCoffees}}
+              <span><h1>Kaffe * {{coffees}}</h1></span>
+              {{else}}
+              <span></span>
+              {{/if}}
+            {{/if}}
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    {{/if}}
+  </div>
 </template>
 
 <template name="header">

@@ -38,7 +38,7 @@ Template.app.helpers({
     insurance_payout = Math.floor(Session.get("insurance_payout")/12)
     insurance_payout = insurance_payout.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     return insurance_payout
-  }
+  },
 });
 
 Template.app.events({
@@ -50,6 +50,29 @@ Template.app.events({
   }
 })
 
+Template.didYouKnow.helpers({
+  oneCoffee() {
+    return Session.get("coffees") == 1
+  },
+  twoCoffees() {
+    return Session.get("coffees") == 2
+  },
+  threeCoffees() {
+    return Session.get("coffees") == 3
+  },
+  fourCoffees() {
+    return Session.get("coffees") == 4
+  },
+  fiveCoffees() {
+    return Session.get("coffees") == 5
+  },
+  moreCoffees() {
+    return Session.get("coffees") > 5
+  },
+  coffees() {
+    return Session.get("coffees")
+  }
+})
 
 Template.mittLiv.events({
   "click #download" () {
