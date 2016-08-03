@@ -3,6 +3,10 @@
 section {
   padding-top: 40px;
 }
+
+.input-field-heading {
+  padding-left: 10px
+}
 .footer {
     padding-bottom: 20px;
 }

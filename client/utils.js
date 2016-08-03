@@ -44,7 +44,6 @@ updateState = function() {
   age = Session.get("age")
   gross_salary = Session.get("gross_salary")
   insurance_payout = Session.get("insurance_payout")
-  console.log(insurance_payout);
   if (insurance_payout == 0) {
     insurance_premium = 0
   } else {

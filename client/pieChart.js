@@ -19,7 +19,7 @@ if (Meteor.isClient) {
       insurance_data = [{
           name: "NAV",
           y: payout,
-          color: "#e6d1b8"
+          color: "#b0dfdb"
         }, {
           name: "Storebrand",
           y: insurance_payout,
@@ -73,7 +73,7 @@ if (Meteor.isClient) {
             }
           },
           series: [{
-            showInLegend: true,
+            showInLegend: false,
             name: "Utbetaling av Storebrand",
             color: "#a8c432",
             data: insurance_data

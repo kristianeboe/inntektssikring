@@ -24,10 +24,11 @@ Template.features.events({
   'keyup #gross_salary_input': function() {
     gross_salary = event.target.value.replace(" ", "");
     gross_salary_input = $("#input-group-gross_salary")
-    if (gross_salary > 260000 && gross_salary < 1500000) {
+    if (gross_salary > 260000 && gross_salary < 2500000) {
       gross_salary_input.removeClass("has-error")
       gross_salary_input.addClass("has-success")
       Session.set("gross_salary", gross_salary)
+      console.log("updating slider now");
       insurance_slider = document.getElementById("insurance_slider")
       insurance_slider.noUiSlider.updateOptions({
         range: {
@@ -35,6 +36,7 @@ Template.features.events({
           'max': Session.get("net_salary") - Session.get("payout")
         }
       })
+      console.log("updated");
 
       updateState()
     }
