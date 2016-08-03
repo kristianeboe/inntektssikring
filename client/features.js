@@ -22,6 +22,7 @@ Template.features.helpers({
 })
 Template.features.events({
   'keyup #gross_salary_input': function() {
+    console.log("keyup");
     gross_salary = event.target.value.replace(" ", "");
     gross_salary_input = $("#input-group-gross_salary")
     if (gross_salary > 260000 && gross_salary < 2500000) {
@@ -42,10 +43,17 @@ Template.features.events({
     }
   },
   'blur #gross_salary_input': function() {
+    console.log("blur");
     gross_salary = event.target.value.replace(" ", "");
     if (gross_salary <= 260000 || gross_salary >= 2200000) {
       $("#input-group-gross_salary").addClass("has-error")
     }
+  },
+  'input #gross_salary_input' : function() {
+    console.log("input");
+  },
+  'change #gross_salary_input' : function() {
+    console.log("change");
   },
   'keyup #age_input': function() {
     age = event.target.value
