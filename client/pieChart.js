@@ -51,7 +51,7 @@ if (Meteor.isClient) {
               cursor: 'pointer',
               dataLabels: {
                 enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                format: '<b>{point.name}</b>:<br> {point.y} kr',
                 style: {
                   color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                 }

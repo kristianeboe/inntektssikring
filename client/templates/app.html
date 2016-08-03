@@ -49,24 +49,31 @@
   </div>
   <div class="container">
     {{#if oneCoffee}}
-    <span>1 kaffe</span>
+      <img class="coffees" src="Kaffe1.png"/>
     {{else}}
       {{#if twoCoffees}}
-      <span>2 kaffe</span>
+        <img class="coffees" src="Kaffe2.png" />
       {{else}}
         {{#if threeCoffees}}
-        <span>3 kaffe</span>
+          <img class="coffees" src="Kaffe3.png" />
         {{else}}
           {{#if fourCoffees}}
-          <span>4 kaffe</span>
+            <img class="coffees" src="Kaffe4.png" />
           {{else}}
             {{#if fiveCoffees}}
-            <span>5 kaffe</span>
+              <img class="coffees" src="Kaffe5.png" />
             {{else}}
               {{#if moreCoffees}}
-              <span><h1>Kaffe * {{coffees}}</h1></span>
+              <div class="row">
+                <div class="col-xs-4">
+                    <img class="coffees" src="Kaffe1.png" />
+                </div>
+                <div class="col-xs-8">
+                    <h1> * {{coffees}}</h1>
+                </div>
+              </div>
               {{else}}
-              <span></span>
+
               {{/if}}
             {{/if}}
           {{/if}}
