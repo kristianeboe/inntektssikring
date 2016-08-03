@@ -55,7 +55,9 @@
     });
 
     insurance_slider.noUiSlider.on('set', function(values, handle) {
-      console.log("I'm set");
+      $('#age_input').blur();
+      $('#gross_salary_input').blur();
+      $('#insurance_slider').blur();
       var aTag = $("#insurance_slider_anchor");
       $('html,body').animate({scrollTop: aTag.offset().top},'slow');
     });

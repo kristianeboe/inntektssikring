@@ -14,7 +14,7 @@ if (Meteor.isClient) {
       // Gather data:
       net_salary = Math.floor((Session.get("net_salary") / 12))
       payout = Math.floor((Session.get("payout") / 12))
-      insurance_payout = Math.floor((Session.get("insurance_payout")*0.95 / 12))
+      insurance_payout = Math.floor((Session.get("insurance_payout") * 0.95 / 12))
       salary_loss = Math.floor((Session.get("salary_loss") / 12))
       insurance_data = [{
           name: "NAV",
@@ -42,40 +42,26 @@ if (Meteor.isClient) {
           title: {
             text: "Utbetalinger i måneden etter skatt"
           },
-          xAxis: {
-            categories: ['Dagens<br>lønn', 'Nav+<br>Storebrand', 'Tapt<br>inntekt'],
-            labels: {
-              style: {
-                fontSize: '15px',
-                //width: '20px'
-              }
-            }
-          },
-          yAxis: {
-            min: 0,
-            labels: {
-              enabled: false
-            },
-            title: {
-              text: ""
-            },
+          tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
           },
           plotOptions: {
-            column: {
-              stacking: 'normal',
+            pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
               dataLabels: {
                 enabled: true,
-                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
                 style: {
-                  textShadow: 'none'
+                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                 }
               }
             }
           },
           series: [{
+            name: "Uførekalkulator",
+            colorByPoint: true,
             showInLegend: false,
-            name: "Utbetaling av Storebrand",
-            color: "#a8c432",
             data: insurance_data
           }],
           credits: {
