@@ -55,7 +55,7 @@ Template.features.events({
       $("#input-group-gross_salary").addClass("has-error")
     }
   },
-  'focus #age_input': function() {
+  'focus #gross_salary_input': function() {
     event.target.value = ""
   },
   /*
