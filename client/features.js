@@ -47,12 +47,18 @@ Template.features.events({
   'blur #gross_salary_input': function() {
     gross_salary = event.target.value.replace("\s/g", "");
     if (gross_salary == "") {
-      gross_salary = event.target.placeholder
+      gross_salary = Session.get("gross_salary")
+      event.target.value = gross_salary
+
     }
     if (gross_salary <= 260000 || gross_salary >= 2500000) {
       $("#input-group-gross_salary").addClass("has-error")
     }
-  },/*
+  },
+  'focus #age_input': function() {
+    event.target.value = ""
+  },
+  /*
   'input #gross_salary_input' : function() {
     console.log("input");
   },
@@ -70,12 +76,16 @@ Template.features.events({
     }
   },
   'blur #age_input': function() {
-    age = event.target.value
+    age = event.target.value.replace("\s/g", "");
     if (age == "") {
-      age = event.target.placeholder
+      age = Session.get("age")
+      event.target.value = age
     }
     if (age < 18 || age > 67) {
       $("#input-group-age").addClass("has-error")
     }
+  },
+  'focus #age_input': function() {
+    event.target.value = ""
   }
 })
