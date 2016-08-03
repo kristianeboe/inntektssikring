@@ -43,7 +43,7 @@ if (Meteor.isClient) {
             text: "Utbetalinger i måneden etter skatt"
           },
           tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '{point.percentage:.1f}%'
           },
           plotOptions: {
             pie: {
@@ -51,7 +51,7 @@ if (Meteor.isClient) {
               cursor: 'pointer',
               dataLabels: {
                 enabled: true,
-                format: '<b>{point.name}</b>:<br> {point.y} kr',
+                format: '{point.name}:<br> {point.y} kr',
                 style: {
                   color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                 }
