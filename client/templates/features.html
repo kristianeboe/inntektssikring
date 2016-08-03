@@ -10,7 +10,7 @@
           Alder
         </div>
         <div class="input-group" id="input-group-age">
-          <input placeholder="{{age}}" id="age_input" type="tel" class="form-control">
+          <input id="age_input" type="tel" class="form-control" placeholder="{{age}}">
         </div>
         <p id="ageHelpBlock" class="form-text text-muted input-field-heading">
           18-67
@@ -22,7 +22,7 @@
           Årslønn
         </div>
         <div class="input-group" id="input-group-gross_salary">
-          <input placeholder="{{gross_salary}}" id="gross_salary_input" type="tel" class="form-control">
+          <input id="gross_salary_input" type="tel" class="form-control" placeholder="{{gross_salary}}">
           <div class="input-group-addon">kr</div>
         </div>
         <p id="ageHelpBlock" class="form-text text-muted input-field-heading">
@@ -36,30 +36,32 @@
     <div id="insurance_slider"></div>
   </div>
   <script type="text/javascript">
+    max = Session.get("net_salary") - Session.get("payout")
+    console.log("i'm here");
+    console.log(max);
     noUiSlider.create(insurance_slider, {
       start: [10000],
       range: {
         'min': [0],
-        'max': [Session.get("net_salary") - Session.get("payout")]
+        'max': [max]
       },
       step: 10000
     });
 
-    insurance_slider = document.getElementById("insurance_slider")
-
     insurance_slider.noUiSlider.on('update', function(values, handle) {
       value = values[handle];
-
       Session.set("insurance_payout", value)
       updateState()
     });
 
     insurance_slider.noUiSlider.on('set', function(values, handle) {
+      /*
       $('#age_input').blur();
       $('#gross_salary_input').blur();
       $('#insurance_slider').blur();
       var aTag = $("#insurance_slider_anchor");
       $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+      */
     });
 
   </script>

@@ -40,7 +40,12 @@ taxIndex = function(income) {
 }
 
 updateState = function() {
-
+  /*
+  timesStateIsUpdated = Session.get("timesStateIsUpdated")
+  Session.set("timesStateIsUpdated", timesStateIsUpdated+1)
+  console.log(timesStateIsUpdated+1);
+  */
+  
   age = Session.get("age")
   gross_salary = Session.get("gross_salary")
   insurance_payout = Session.get("insurance_payout")
@@ -52,21 +57,21 @@ updateState = function() {
 
   net_salary = (gross_salary * (1 - taxIndex(gross_salary) / 100))
 
-   //minstepensjon, medium sats
-       /*if (insurance_payout > gross_salary * 0.19) {
-         insurance_payout = gross_salary * 0.19
-         insurance_premium = insurance_premium_calculation(insurance_payout, age, "bsc")
-       }*/
+  //minstepensjon, medium sats
+  /*if (insurance_payout > gross_salary * 0.19) {
+    insurance_payout = gross_salary * 0.19
+    insurance_premium = insurance_premium_calculation(insurance_payout, age, "bsc")
+  }*/
 
   if (gross_salary <= 555456) {
     gross_payout = (gross_salary * 0.66)
   } else {
     gross_payout = (555456 * 0.66)
   }
-  if (gross_salary*0.66 < 166274) {
+  if (gross_salary * 0.66 < 166274) {
     gross_payout = 166274
   }
-  if (age <= 26 && gross_salary*0.66 < 210000) {
+  if (age <= 26 && gross_salary * 0.66 < 210000) {
     gross_payout = 210000
   }
 
@@ -83,11 +88,30 @@ updateState = function() {
   }
 
   if ((+net_payout + +insurance_payout) > net_salary) {
-    insurance_payout = net_salary-net_payout
-    if (insurance_payout < 0 ) {
+    insurance_payout = net_salary - net_payout
+    if (insurance_payout < 0) {
       insurance_payout = 0
     }
   }
+  /*
+  var updateTimerStuff;
+  if (Session.get("updateSlider")) {
+    console.log("updating slider now");
+    clearTimeout(updateTimerStuff);
+    //updateTimerStuff = setTimeout(function(){
+            insurance_slider = document.getElementById("insurance_slider")
+            insurance_slider.noUiSlider.updateOptions({
+              range:  {
+                'min': 0,
+                'max': net_salary-net_payout //Session.get("net_salary") - Session.get("payout")
+              }
+            })
+            console.log("updated");
+
+    //},5)
+  }
+  Session.set("updateSlider", true)
+  */
 
 
 
@@ -99,9 +123,8 @@ updateState = function() {
   years_left = 67 - age
   salary_loss_lifetime = salary_loss * years_left
 
-  coffees = insurance_premium/12/40
+  coffees = insurance_premium / 12 / 40
   coffees = Math.round(coffees)
-  console.log(coffees);
 
   gross_salary = Math.floor(gross_salary)
   net_salary = Math.floor(net_salary)

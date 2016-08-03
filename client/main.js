@@ -14,6 +14,8 @@ Template.app.onCreated(function(){
   Session.set("gross_salary", 550000)
   Session.set("age", 26)
   Session.set("insurance_payout", 0)
+  Session.set("updateSlider", false)
+  Session.set("timesStateIsUpdated", 0)
   updateState()
 });
 
@@ -40,15 +42,6 @@ Template.app.helpers({
     return insurance_payout
   },
 });
-
-Template.app.events({
-  "input #insurance_payout_range" () {
-    insurance_payout = event.target.value
-    insurance_payout = insurance_payout*1000
-    Session.set("insurance_payout", insurance_payout)
-    updateState()
-  }
-})
 
 Template.didYouKnow.helpers({
   oneCoffee() {

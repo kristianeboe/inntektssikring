@@ -21,10 +21,11 @@ Template.features.helpers({
 
 })
 Template.features.events({
-  'keyup #gross_salary_input': function() {
+  'input #gross_salary_input': function() {
     console.log("keyup");
-    gross_salary = event.target.value.replace(" ", "");
+    gross_salary = event.target.value.replace("\s/g", "");
     gross_salary_input = $("#input-group-gross_salary")
+    console.log(gross_salary);
     if (gross_salary > 260000 && gross_salary < 2500000) {
       gross_salary_input.removeClass("has-error")
       gross_salary_input.addClass("has-success")
@@ -43,19 +44,21 @@ Template.features.events({
     }
   },
   'blur #gross_salary_input': function() {
-    console.log("blur");
-    gross_salary = event.target.value.replace(" ", "");
-    if (gross_salary <= 260000 || gross_salary >= 2200000) {
+    gross_salary = event.target.value.replace("\s/g", "");
+    if (gross_salary == "") {
+      gross_salary = event.target.placeholder
+    }
+    if (gross_salary <= 260000 || gross_salary >= 2500000) {
       $("#input-group-gross_salary").addClass("has-error")
     }
-  },
+  },/*
   'input #gross_salary_input' : function() {
     console.log("input");
   },
   'change #gross_salary_input' : function() {
     console.log("change");
-  },
-  'keyup #age_input': function() {
+  },*/
+  'input #age_input': function() {
     age = event.target.value
     age_input = $("#input-group-age")
     if (age > 17 && age < 68) {
@@ -67,16 +70,11 @@ Template.features.events({
   },
   'blur #age_input': function() {
     age = event.target.value
+    if (age == "") {
+      age = event.target.placeholder
+    }
     if (age < 18 || age > 67) {
       $("#input-group-age").addClass("has-error")
     }
-  }
-})
-
-Template.sliders.events({
-  'set #ageSlider': function() {
-    age = event.target.value
-    Session.set("age", age)
-    updateState()
   }
 })

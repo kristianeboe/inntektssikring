@@ -1,5 +1,18 @@
 /* CSS declarations go here */
 
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: pink;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: pink;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: pink;
+}
+
 .coffees {
   height: auto;
   width: auto;

@@ -52,6 +52,7 @@ if (Meteor.isClient) {
               dataLabels: {
                 enabled: true,
                 format: '{point.name}:<br> {point.y} kr',
+                distance: -38,
                 style: {
                   color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                 }
@@ -59,7 +60,6 @@ if (Meteor.isClient) {
             }
           },
           series: [{
-            name: "Uførekalkulator",
             colorByPoint: true,
             showInLegend: false,
             data: insurance_data
