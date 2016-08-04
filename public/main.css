@@ -13,6 +13,10 @@
   color: pink;
 }
 
+
+svg {
+  padding-top: 2px;
+}
 .coffees {
   height: auto;
   width: auto;

@@ -2,12 +2,15 @@
   <div class="container">
     {{> header}}
     <h1>Hva om du ikke kan jobbe?</h1>
-    <p>Har du tenkt over hvordan livet ditt hadde vært uten inntekt? Det kan være tøft å leve på støtten du får fra NAV hvis du ikke er i stand til å jobbe. En inntektsforsikring kan gi deg de samme økonomiske mulighetene som i dag.</p>
+    <p>Har du tenkt over hvordan livet ditt hadde vært uten inntekt? Det kan være tøft å leve på støtten du får fra NAV hvis du ikke er i stand til å jobbe. En inntektsforsikring kan gi deg de samme økonomiske mulighetene som du har i dag.</p>
     <h5>Juster prisen under og se hvordan inntekten din blir påvirket hvis du ikke kan jobbe</h5>
   </div>
   {{>features}}
   <section>
     {{> pieChartModule}}
+    <div class="text-right">
+      Tallene viser tap og utbetalinger etter skatt
+    </div>
   </section>
 
   {{> didYouKnow}}
@@ -16,7 +19,7 @@
     <div class="container">
       <div class="actions">
         <div class="text-center">
-          <h5>Med inntektssikring har du uansett en fremtid å glede deg til.</h5>
+          <h5>Med inntektsforsikring har du uansett en fremtid å glede deg til.</h5>
           <a class="stb-btn" target="#" href="https://www.storebrand.no/privat/forsikring/uforeforsikring">Sikre inntekten din nå</a>
           <!--
         <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=@storebrand%20#inntektssikring" data-size="large">
@@ -47,7 +50,7 @@
     <b>Viste du at...</b>
   </div>
   <div>
-    Den månedlige prisen du valgte tilsvarer
+    Prisen du valgte tilsvarer dette i uken?
   </div>
   <div class="text-center">
     {{#if oneCoffee}}

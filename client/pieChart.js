@@ -36,16 +36,23 @@ if (Meteor.isClient) {
 
         Highcharts.chart('pieChart', {
           chart: {
-            height: 300,
+            height: 320,
             type: 'pie',
-            margin: [0, 0, 0, 0],
+            margin: [20, 0, 0, 0],
             spacingTop: 0,
             spacingBottom: 0,
             spacingLeft: 0,
-            spacingRight: 0
+            spacingRight: 0,
+
           },
           title: {
-            text: "Utbetalinger i måneden etter skatt"
+            text: "Figurens total tilsvarer din nåværende månedslønn",
+            style: {
+              fontWeight: "normal",
+              fontFamily: "Open Sans,Arial,ArialMT,sans-serif",
+              symbolHeight: 150,
+              marginTop: 20
+            }
           },
           tooltip: {
             pointFormat: '{point.percentage:.1f}%'
