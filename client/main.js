@@ -41,6 +41,9 @@ Template.app.helpers({
     insurance_payout = insurance_payout.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     return insurance_payout
   },
+  coffee() {
+    return Session.get("coffees") > 0
+  }
 });
 
 Template.didYouKnow.helpers({

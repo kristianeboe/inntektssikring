@@ -45,7 +45,7 @@ updateState = function() {
   Session.set("timesStateIsUpdated", timesStateIsUpdated+1)
   console.log(timesStateIsUpdated+1);
   */
-  
+
   age = Session.get("age")
   gross_salary = Session.get("gross_salary")
   insurance_payout = Session.get("insurance_payout")
@@ -93,25 +93,6 @@ updateState = function() {
       insurance_payout = 0
     }
   }
-  /*
-  var updateTimerStuff;
-  if (Session.get("updateSlider")) {
-    console.log("updating slider now");
-    clearTimeout(updateTimerStuff);
-    //updateTimerStuff = setTimeout(function(){
-            insurance_slider = document.getElementById("insurance_slider")
-            insurance_slider.noUiSlider.updateOptions({
-              range:  {
-                'min': 0,
-                'max': net_salary-net_payout //Session.get("net_salary") - Session.get("payout")
-              }
-            })
-            console.log("updated");
-
-    //},5)
-  }
-  Session.set("updateSlider", true)
-  */
 
 
 
@@ -122,8 +103,9 @@ updateState = function() {
 
   years_left = 67 - age
   salary_loss_lifetime = salary_loss * years_left
-
-  coffees = insurance_premium / 12 / 40
+  console.log(insurance_premium);
+  coffees = insurance_premium / 52 / 40
+  console.log(coffees);
   coffees = Math.round(coffees)
 
   gross_salary = Math.floor(gross_salary)

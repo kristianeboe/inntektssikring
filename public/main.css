@@ -1,5 +1,38 @@
 /* CSS declarations go here */
 
+.ingress {
+  padding-bottom: 18px;
+}
+
+.explanation {
+  padding-bottom: 9px;
+}
+
+.input-field {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#pieChart {
+  padding-top: 24px;
+}
+.chart-help-text {
+  font-size: 12px;
+  padding-right: 10px;
+}
+
+.didYouKnow-image {
+  padding-top: 20px;
+}
+
+.call-to-action {
+  margin-top: 20px;
+}
+
+#sikre-inntekten-din {
+  padding-top: 10px;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: pink;
 }
@@ -24,12 +57,19 @@ svg {
   max-height: 60px;
 }
 section {
-  padding-top: 40px;
-}
 
+}
+.input-field-group {
+  max-width: 300px;
+}
 .input-field-heading {
   padding-left: 10px
 }
+.input-field-help {
+  padding-left: 10px;
+  font-size: 12px;
+}
+
 .footer {
     padding-bottom: 20px;
 }
@@ -38,7 +78,7 @@ section {
   padding-bottom: 20px;
 }
 body {
-  padding-top: 15px;
+  padding-top: 18px;
 }
 
 h5 {

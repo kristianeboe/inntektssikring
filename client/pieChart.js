@@ -25,7 +25,7 @@ if (Meteor.isClient) {
           y: insurance_payout,
           color: "#a8c432"
         }, {
-          name: "Udekket tap",
+          name: "Udekket<br><b>tapt inntekt</b>",
           y: salary_loss,
           color: "#da291c"
         }]
@@ -50,8 +50,7 @@ if (Meteor.isClient) {
             style: {
               fontWeight: "normal",
               fontFamily: "Open Sans,Arial,ArialMT,sans-serif",
-              symbolHeight: 150,
-              marginTop: 20
+              fontSize: "14px"
             }
           },
           tooltip: {
@@ -59,13 +58,13 @@ if (Meteor.isClient) {
           },
           plotOptions: {
             pie: {
-              size:'90%',
+              size:'80%',
               allowPointSelect: true,
               cursor: 'pointer',
               dataLabels: {
                 enabled: true,
                 format: '<b>{point.name}</b><br> {point.y:,.0f} kr',
-                distance: -5,
+                distance: -3,
                 style: {
                   color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
                   fontWeight: "normal",
