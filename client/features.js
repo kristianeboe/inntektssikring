@@ -22,8 +22,7 @@ Template.features.helpers({
 })
 Template.features.events({
   'input #gross_salary_input': function() {
-    console.log("keyup");
-    gross_salary = event.target.value.replace("\s/g", "");
+    gross_salary = event.target.value.replace(/\s/g, "");
     gross_salary_input = $("#input-group-gross_salary")
     console.log(gross_salary);
     if (gross_salary > 260000 && gross_salary < 2500000) {
@@ -45,26 +44,22 @@ Template.features.events({
     }
   },
   'blur #gross_salary_input': function() {
-    gross_salary = event.target.value.replace("\s/g", "");
+    gross_salary = event.target.value.replace(/\s/g, "");
+    console.log(gross_salary);
     if (gross_salary == "") {
       gross_salary = Session.get("gross_salary")
       event.target.value = gross_salary
-
     }
     if (gross_salary <= 260000 || gross_salary >= 2500000) {
-      $("#input-group-gross_salary").addClass("has-error")
+      console.log(gross_salary);
+      gross_salary_input = $("#input-group-gross_salary")
+      gross_salary_input.removeClass("has-success")
+      gross_salary_input.addClass("has-error")
     }
   },
   'focus #gross_salary_input': function() {
     event.target.value = ""
   },
-  /*
-  'input #gross_salary_input' : function() {
-    console.log("input");
-  },
-  'change #gross_salary_input' : function() {
-    console.log("change");
-  },*/
   'input #age_input': function() {
     age = event.target.value
     age_input = $("#input-group-age")
@@ -76,13 +71,15 @@ Template.features.events({
     }
   },
   'blur #age_input': function() {
-    age = event.target.value.replace("\s/g", "");
+    age = event.target.value.replace(/\s/g, "");
     if (age == "") {
       age = Session.get("age")
       event.target.value = age
     }
     if (age < 18 || age > 67) {
-      $("#input-group-age").addClass("has-error")
+      age_input = $("#input-group-age")
+      age_input.removeClass("has-success")
+      age_input.addClass("has-error")
     }
   },
   'focus #age_input': function() {
