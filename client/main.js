@@ -11,7 +11,7 @@ import './index.html';
 
 
 Template.app.onCreated(function(){
-  Session.set("gross_salary", 550000)
+  Session.set("gross_salary", 350000)
   Session.set("age", 26)
   Session.set("insurance_payout", 0)
   Session.set("updateSlider", false)
