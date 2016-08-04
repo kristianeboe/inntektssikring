@@ -17,15 +17,15 @@ if (Meteor.isClient) {
       insurance_payout = Math.floor((Session.get("insurance_payout") * 0.95 / 12))
       salary_loss = Math.floor((Session.get("salary_loss") / 12))
       insurance_data = [{
-          name: "NAV",
+          name: "NAV/Folketrygd",
           y: payout,
           color: "#b0dfdb"
         }, {
-          name: "Storebrand",
+          name: "Utbetaling fra <br><b>Storebrand</b>",
           y: insurance_payout,
           color: "#a8c432"
         }, {
-          name: "Tap",
+          name: "Udekket tap",
           y: salary_loss,
           color: "#da291c"
         }]
@@ -37,7 +37,12 @@ if (Meteor.isClient) {
         Highcharts.chart('pieChart', {
           chart: {
             height: 300,
-            type: 'pie'
+            type: 'pie',
+            margin: [0, 0, 0, 0],
+            spacingTop: 0,
+            spacingBottom: 0,
+            spacingLeft: 0,
+            spacingRight: 0
           },
           title: {
             text: "Utbetalinger i måneden etter skatt"
@@ -47,14 +52,17 @@ if (Meteor.isClient) {
           },
           plotOptions: {
             pie: {
+              size:'90%',
               allowPointSelect: true,
               cursor: 'pointer',
               dataLabels: {
                 enabled: true,
-                format: '{point.name}:<br> {point.y} kr',
-                distance: -38,
+                format: '<b>{point.name}</b><br> {point.y:,.0f} kr',
+                distance: -5,
                 style: {
-                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+                  fontWeight: "normal",
+                  textShadow: 0,
                 }
               }
             }
