@@ -16,6 +16,7 @@ Template.features.helpers({
   },
   insurance_premium() {
     insurance_premium = Math.floor((Session.get("insurance_premium"))/12)
+    insurance_premium = Math.ceil(insurance_premium/10)*10
     return insurance_premium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
   },
 
