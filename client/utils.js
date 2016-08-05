@@ -94,8 +94,6 @@ updateState = function() {
     }
   }
 
-
-
   salary_loss = net_salary - net_payout - insurance_payout
   if (salary_loss < 0) {
     salary_loss = 0
@@ -103,10 +101,9 @@ updateState = function() {
 
   years_left = 67 - age
   salary_loss_lifetime = salary_loss * years_left
-  console.log(insurance_premium);
-  coffees = insurance_premium / 52 / 40
+  coffees = insurance_premium / 12 / 40
+  coffees = Math.ceil(coffees)
   console.log(coffees);
-  coffees = Math.round(coffees)
 
   gross_salary = Math.floor(gross_salary)
   net_salary = Math.floor(net_salary)

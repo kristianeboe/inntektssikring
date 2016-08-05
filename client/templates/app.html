@@ -10,16 +10,32 @@
     </div>
   </section>
   {{>features}}
-  <section>
-    {{> pieChartModule}}
-    <div class="text-center chart-help-text">
-      Tallene viser tap og utbetalinger etter skatt
+  <section class="container">
+    <div class="row">
+
+    {{#if coffee}}
+    <div class="col-xs-12 col-md-6">
+      {{> pieChartModule}}
+      <div class="text-center chart-help-text">
+        Tallene viser tap og utbetalinger etter skatt
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      {{#if coffee}}
+        {{> didYouKnow}}
+      {{else}}
+      {{/if}}
+    </div>
+    {{else}}
+      <div class="col-xs-12">
+        {{> pieChartModule}}
+        <div class="text-center chart-help-text">
+          Tallene viser tap og utbetalinger etter skatt
+        </div>
+      </div>
+    {{/if}}
     </div>
   </section>
-  {{#if coffee}}
-    {{> didYouKnow}}
-  {{else}}
-  {{/if}}
 
   <section class="stbcolor-secondary sixth call-to-action">
     <div class="container">
@@ -42,7 +58,7 @@
 </template>
 
 <template name="didYouKnow">
-  <section class="container didYouKnow">
+
     <div class="didYouKnow-text">
       <b>Visste du at...</b>
     </div>
@@ -84,7 +100,7 @@
                 {{/if}}
               {{/if}}
     </div>
-  </section>
+
 </template>
 
 <template name="header">
