@@ -13,27 +13,20 @@
   <section class="container">
     <div class="row">
 
-    {{#if coffee}}
+
     <div class="col-xs-12 col-md-6">
       {{> pieChartModule}}
       <div class="text-center chart-help-text">
         Tallene viser tap og utbetalinger etter skatt
       </div>
     </div>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-6 didYouKnow">
       {{#if coffee}}
         {{> didYouKnow}}
       {{else}}
       {{/if}}
     </div>
-    {{else}}
-      <div class="col-xs-12">
-        {{> pieChartModule}}
-        <div class="text-center chart-help-text">
-          Tallene viser tap og utbetalinger etter skatt
-        </div>
-      </div>
-    {{/if}}
+
     </div>
   </section>
 
@@ -65,21 +58,21 @@
     <div>
       Prisen du valgte tilsvarer dette i uken?
     </div>
-    <div class="text-center didYouKnow-image">
+    <div class="didYouKnow-image">
       {{#if oneCoffee}}
-        <img class="coffees" src="Kopp1.png" />
+        <img class="coffees" src="Koff1.png" />
       {{else}}
         {{#if twoCoffees}}
-          <img class="coffees" src="Kopp2.png" />
+          <img class="coffees" src="Koff2.png" />
         {{else}}
           {{#if threeCoffees}}
-            <img class="coffees" src="Kopp3.png" />
+            <img class="coffees" src="Koff3.png" />
             {{else}}
               {{#if fourCoffees}}
-                <img class="coffees" src="Kopp4.png" />
+                <img class="coffees" src="Koff4.png" />
                 {{else}}
                   {{#if fiveCoffees}}
-                    <img class="coffees" src="Kopp5.png" />
+                    <img class="coffees" src="Koff5.png" />
                     {{else}}
                     <!--
                       {{#if moreCoffees}}

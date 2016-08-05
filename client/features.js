@@ -23,6 +23,9 @@ Template.features.helpers({
 })
 Template.features.events({
   'input #gross_salary_input': function() {
+    //var Highcharts = require('highcharts');
+    //var chart=$("#pieChart").highcharts();
+    //console.log(chart);
     gross_salary = event.target.value.replace(/\s/g, "");
     gross_salary_input = $("#input-group-gross_salary")
     console.log(gross_salary);
