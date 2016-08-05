@@ -101,9 +101,12 @@ updateState = function() {
 
   years_left = 67 - age
   salary_loss_lifetime = salary_loss * years_left
-  coffees = insurance_premium / 12 / 40
-  coffees = Math.ceil(coffees)
+  coffees = insurance_premium / 52 / 25
   console.log(coffees);
+  if (coffees < 0.6) {
+    coffees = 0
+  }
+  coffees = Math.ceil(coffees)
 
   gross_salary = Math.floor(gross_salary)
   net_salary = Math.floor(net_salary)
