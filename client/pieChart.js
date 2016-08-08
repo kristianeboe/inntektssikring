@@ -16,6 +16,9 @@ if (Meteor.isClient) {
       payout = Math.floor((Session.get("payout") / 12))
       insurance_payout = Math.floor((Session.get("insurance_payout") * 0.95 / 12))
       salary_loss = Math.floor((Session.get("salary_loss") / 12))
+
+      new_monthly_salary = (net_salary - salary_loss).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+
       insurance_data = [{
           name: "NAV/Folketrygd",
           y: payout,
@@ -25,7 +28,7 @@ if (Meteor.isClient) {
           y: insurance_payout,
           color: "#a8c432"
         }, {
-          name: "Udekket<br><b>tapt inntekt</b>",
+          name: "Tapt<br><b>inntekt</b>",
           y: salary_loss,
           color: "#da291c"
         }]
@@ -46,7 +49,7 @@ if (Meteor.isClient) {
 
           },
           title: {
-            text: "Figurens total tilsvarer din nåværende månedslønn",
+            text: "Ny bergegnet månedsinntekt:<br>" + new_monthly_salary+" kr",
             style: {
               fontWeight: "normal",
               fontFamily: "Open Sans,Arial,ArialMT,sans-serif",
