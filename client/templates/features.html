@@ -34,7 +34,7 @@
           <div>Velg forsikringspris du vil betale i måneden
             <h1 class="truncate">{{insurance_premium}} kr</h1>
           </div>
-          <div class="col-xs-12 col-lg-6" id="insurance_slider"></div>
+          <div class="col-xs-12" id="insurance_slider"></div>
         </div>
         <!--
         <div class="col-md-6 new_gross_salary">
@@ -49,6 +49,7 @@
 
   <script type="text/javascript">
     max = Session.get("max")
+
     noUiSlider.create(insurance_slider, {
       start: [10000],
       range: {
