@@ -37,8 +37,9 @@ if (Meteor.isClient) {
         var Highcharts = require('highcharts');
         // Create standard Highcharts chart with options:
 
-        var chart = Highcharts.chart('pieChart', {
+        var chart = new Highcharts.Chart({
           chart: {
+            renderTo: 'pieChart',
             height: 320,
             type: 'pie',
             margin: [20, 0, 0, 0],
@@ -85,7 +86,6 @@ if (Meteor.isClient) {
             enabled: false
           },
         })
-
       })
     }
   })

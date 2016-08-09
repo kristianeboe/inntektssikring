@@ -2,45 +2,53 @@
 
   <section class="stbcolor-secondary sixth features">
     <div class="container">
-    <div class="row input-fields">
-      <div class="input-field-group col-xs-4 col-md-5">
-        <div class="input-field-heading">
-          Alder
+      <div class="row input-fields">
+        <div class="input-field-group col-xs-4 col-md-5">
+          <div class="input-field-heading">
+            Alder
+          </div>
+          <div class="input-group" id="input-group-age">
+            <input id="age_input" type="tel" class="form-control input-field" value="{{age}}">
+          </div>
+          <p id="ageHelpBlock" class="form-text text-muted input-field-help">
+            18 – 67
+          </p>
         </div>
-        <div class="input-group" id="input-group-age">
-          <input id="age_input" type="tel" class="form-control input-field" value="{{age}}">
+        <div class="input-field-group col-xs-8 col-md-7">
+          <div class="input-field-heading">
+            Årslønn
+          </div>
+          <div class="input-group" id="input-group-gross_salary">
+            <input id="gross_salary_input" type="tel" class="form-control input-field" value="{{gross_salary}}">
+            <div id="kr" class="input-group-addon">kr</div>
+          </div>
+          <p id="ageHelpBlock" class="form-text text-muted input-field-help">
+            min. 270 000
+          </p>
         </div>
-        <p id="ageHelpBlock" class="form-text text-muted input-field-help">
-          18 – 67
-        </p>
       </div>
-      <div class="input-field-group col-xs-8 col-md-7">
-        <div class="input-field-heading">
-          Årslønn
-        </div>
-        <div class="input-group" id="input-group-gross_salary">
-          <input id="gross_salary_input" type="tel" class="form-control input-field" value="{{gross_salary}}">
-          <div id="kr" class="input-group-addon">kr</div>
-        </div>
-        <p id="ageHelpBlock" class="form-text text-muted input-field-help">
-          min. 270 000
-        </p>
-      </div>
-    </div>
-    <div class="input_slider">
+
       <a id="insurance_slider_anchor"></a>
-      <div>Velg forsikringspris du vil betale i måneden
-        <h1 class="truncate">{{insurance_premium}} kr</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <div>Velg forsikringspris du vil betale i måneden
+            <h1 class="truncate">{{insurance_premium}} kr</h1>
+          </div>
+          <div class="col-xs-12 col-lg-6" id="insurance_slider"></div>
+        </div>
+        <!--
+        <div class="col-md-6 new_gross_salary">
+          <span>Dette tilsvarer en årslønn på</span>
+          <h1>{{new_gross_salary}}</h1>
+
+        </div>
+      -->
       </div>
-      <div class="col-xs-12 col-lg-6" id="insurance_slider"></div>
-    </div>
     </div>
   </section>
 
   <script type="text/javascript">
-    max = Session.get("net_salary") - Session.get("payout")
-    console.log("i'm here");
-    console.log(max);
+    max = Session.get("max")
     noUiSlider.create(insurance_slider, {
       start: [10000],
       range: {

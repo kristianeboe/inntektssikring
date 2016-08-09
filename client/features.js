@@ -19,43 +19,44 @@ Template.features.helpers({
     insurance_premium = Math.ceil(insurance_premium/10)*10
     return insurance_premium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
   },
+  new_gross_salary() {
+    gross_salary = Session.get("gross_salary")
+    salary_loss = Session.get("salary_loss")
 
+    payout = Session.get("payout")
+    insurance_payout = Session.get("insurance_payout")
+    return gross_salary-salary_loss
+    //return payout + insurance_payout
+  }
 })
+
 Template.features.events({
   'input #gross_salary_input': function() {
     //var Highcharts = require('highcharts');
     //var chart=$("#pieChart").highcharts();
-    //console.log(chart);
     gross_salary = event.target.value.replace(/\s/g, "");
     gross_salary_input = $("#input-group-gross_salary")
-    console.log(gross_salary);
     if (gross_salary > 260000 && gross_salary < 2500000) {
       gross_salary_input.removeClass("has-error")
       gross_salary_input.addClass("has-success")
       Session.set("gross_salary", gross_salary)
       updateState()
-      console.log("updating slider now");
       insurance_slider = document.getElementById("insurance_slider")
       insurance_slider.noUiSlider.updateOptions({
         range: {
           'min': 0,
-          'max': Session.get("net_salary") - Session.get("payout")
+          'max': Session.get("max")
         }
       })
-      console.log("updated");
-
-
     }
   },
   'blur #gross_salary_input': function() {
     gross_salary = event.target.value.replace(/\s/g, "");
-    console.log(gross_salary);
     if (gross_salary == "") {
       gross_salary = Session.get("gross_salary")
       event.target.value = gross_salary
     }
     if (gross_salary <= 260000 || gross_salary >= 2500000) {
-      console.log(gross_salary);
       gross_salary_input = $("#input-group-gross_salary")
       gross_salary_input.removeClass("has-success")
       gross_salary_input.addClass("has-error")

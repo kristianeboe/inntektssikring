@@ -87,6 +87,11 @@ updateState = function() {
     insurance_payout = 240000
   }
 
+  max = net_salary - net_payout
+  if (max > 240000) {
+    max = 240000
+  }
+
   if ((+net_payout + +insurance_payout) > net_salary) {
     insurance_payout = net_salary - net_payout
     if (insurance_payout < 0) {
@@ -102,7 +107,6 @@ updateState = function() {
   years_left = 67 - age
   salary_loss_lifetime = salary_loss * years_left
   coffees = insurance_premium / 52 / 25
-  console.log(coffees);
   if (coffees < 0.6) {
     coffees = 0
   }
@@ -126,4 +130,7 @@ updateState = function() {
   Session.set("insurance_payout", insurance_payout)
   Session.set("insurance_premium", insurance_premium)
   Session.set("coffees", coffees)
+  Session.set("max", max)
+
+  updateChart()
 }

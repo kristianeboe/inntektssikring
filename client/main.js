@@ -43,8 +43,9 @@ Template.app.helpers({
   },
   coffee() {
     return Session.get("coffees") > 0
-  }
+  },
 });
+
 
 Template.didYouKnow.helpers({
   oneCoffee() {
