@@ -44,7 +44,7 @@ Template.dynamicChart.helpers({
           }
         },
         tooltip: {
-          pointFormat: '{point.percentage:.1f}%'
+          pointFormat: '{point.y:,.0f}'
         },
         plotOptions: {
           pie: {
