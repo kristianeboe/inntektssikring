@@ -49,7 +49,7 @@ if (Meteor.isClient) {
 
           },
           title: {
-            text: "Ny bergegnet månedsinntekt:<br>" + new_monthly_salary+" kr",
+            text: "Ny beregnet månedsinntekt:<br>" + new_monthly_salary+" kr",
             style: {
               fontWeight: "normal",
               fontFamily: "Open Sans,Arial,ArialMT,sans-serif",
