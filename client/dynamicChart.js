@@ -27,7 +27,7 @@ Template.dynamicChart.helpers({
       var chart = new Highcharts.Chart({
         chart: {
           renderTo: 'dynamicChart',
-          height: 320,
+          height: 300,
           type: 'pie',
           margin: [20, 0, 0, 0],
           spacingTop: 0,
@@ -36,7 +36,7 @@ Template.dynamicChart.helpers({
           spacingRight: 0,
         },
         title: {
-          text: "Ny beregnet månedsinntekt:<br>" + new_monthly_salary + " kr",
+          text: "",
           style: {
             fontWeight: "normal",
             fontFamily: "Open Sans,Arial,ArialMT,sans-serif",

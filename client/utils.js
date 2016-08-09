@@ -120,6 +120,7 @@ updateState = function() {
   salary_loss_lifetime = Math.floor(salary_loss_lifetime)
   insurance_payout = Math.floor(insurance_payout)
   insurance_premium = Math.floor(insurance_premium)
+  new_monthly_salary = (Math.floor((net_salary - salary_loss)/12)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 
   Session.set("gross_salary", gross_salary)
   Session.set("net_salary", net_salary)
@@ -131,6 +132,7 @@ updateState = function() {
   Session.set("insurance_premium", insurance_premium)
   Session.set("coffees", coffees)
   Session.set("max", max)
+  Session.set("new_monthly_salary", new_monthly_salary)
 
   updateChart()
 }

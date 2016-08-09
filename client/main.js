@@ -44,6 +44,9 @@ Template.app.helpers({
   coffee() {
     return Session.get("coffees") > 0
   },
+  new_monthly_salary() {
+    return Session.get("new_monthly_salary")
+  }
 });
 
 
@@ -68,7 +71,7 @@ Template.didYouKnow.helpers({
   },
   coffees() {
     return Session.get("coffees")
-  }
+  },
 })
 
 Template.mittLiv.events({
