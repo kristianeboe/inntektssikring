@@ -1,4 +1,5 @@
 <template name="app">
+
   <section class="container intro">
     {{> header}}
     <div class="ingress">
@@ -9,30 +10,36 @@
       <h5>Juster prisen under og se hvordan inntekten din blir påvirket hvis du ikke kan jobbe</h5>
     </div>
   </section>
+
+  <!-- Input fields and slider -->
   {{>features}}
+
+
+  <!-- Pie chart and graphic illustration of cost(coffees) -->
   <section class="container">
     <div class="row">
-
-
-    <div class="col-xs-12 col-md-6">
-      <div class="text-center">
-        Ny beregnet månedsinntekt: {{new_monthly_salary}} kr
+      <div class="col-xs-12 col-md-6">
+        <div class="text-center">
+          Ny beregnet månedsinntekt: {{new_monthly_salary}} kr
+        </div>
+        {{>dynamicChart}}
+        <div class="text-right chart-help-text">
+          Figurens total tilsvarer din nåværende månedslønn. Tallene viser tap og utbetalinger etter skatt
+        </div>
       </div>
-      {{>dynamicChart}}
-      <div class="text-right chart-help-text">
-        Figurens total tilsvarer din nåværende månedslønn. Tallene viser tap og utbetalinger etter skatt
+
+      <!-- Graphic illustration of cost(coffees) -->
+      <div class="col-xs-12 col-md-6 didYouKnow">
+        {{#if coffee}}
+          {{> didYouKnow}}
+        {{else}}
+        {{/if}}
       </div>
-    </div>
-    <div class="col-xs-12 col-md-6 didYouKnow">
-      {{#if coffee}}
-        {{> didYouKnow}}
-      {{else}}
-      {{/if}}
-    </div>
 
     </div>
   </section>
 
+  <!-- Link to storebrand, possibly Miro. Can also enable sharing here -->
   <section class="stbcolor-secondary sixth call-to-action">
     <div class="container">
       <div class="text-center">
@@ -105,13 +112,6 @@
   </div>
 </template>
 
-<template name="chartModule">
-  <div id="chart">{{createChart}}</div>
-</template>
-
-<template name="pieChartModule">
-  <div id="pieChart">{{createChart}}</div>
-</template>
 
 <template name="dynamicChart">
   <div id="dynamicChart"></div>

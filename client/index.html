@@ -1,18 +1,19 @@
 <head>
   <title>Inntektssikring</title>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
   <link rel="stylesheet" type="text/css" href="//elements.storebrand.no/storebrand.ny/0.92/css/stb-all.min.css">
   <link rel="stylesheet" href="main.css">
-
   <link rel="stylesheet" href="nouislider.min.css">
   <link rel="stylesheet" href="nouislider.pips.css">
-  <script type="text/javascript" src="nouislider.min.js"></script>
 
+  <script type="text/javascript" src="nouislider.min.js"></script>
   <script src="https://cdn.optimizely.com/js/6460060019.js"></script>
 
+  <!-- Google analytics -->
   <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -29,6 +30,7 @@
     ga('send', 'pageview');
   </script>
 
+  <!-- Heap analytics, main analytics engine-->
   <script type="text/javascript">
     window.heap = window.heap || [], heap.load = function(e, t) {
       window.heap.appid = e, window.heap.config = t = t || {};
@@ -46,6 +48,7 @@
     heap.load("3479675784");
   </script>
 
+  <!-- Twitter share -->
   <script>
     window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
@@ -64,9 +67,11 @@
       return t;
     }(document, "script", "twitter-wjs"));
   </script>
+
 </head>
 
 <body>
+  <!-- Facebook share -->
   <div id="fb-root"></div>
   <script>
     (function(d, s, id) {
@@ -79,7 +84,10 @@
     }(document, 'script', 'facebook-jssdk'));
   </script>
 
+  <!-- Entry point to app -->
   {{> app}}
+
+  <!-- Disclaimer -->
   <div class="text-center">
     <img src="/Disclaimer.jpg" id="disclaimer" />
   </div>
