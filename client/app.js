@@ -1,14 +1,3 @@
-import {
-  Template
-} from 'meteor/templating';
-import {
-  ReactiveVar
-} from 'meteor/reactive-var';
-import {
-  InterestedPeople
-} from '../imports/api/database.js';
-import './index.html';
-
 
 Template.app.onCreated(function(){
   Session.set("gross_salary", 350000)

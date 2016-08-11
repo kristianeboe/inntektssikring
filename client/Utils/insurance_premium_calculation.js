@@ -1,6 +1,8 @@
+
+// Calculate how much a payout level will cost
+// Based on Kundeguiden
 insurance_premium_calculation = function(insurance_payout, age, education) {
   const constant = 240
-  //minimumSum = minimumSum(insurance_payout)
   if (insurance_payout < 50000) {
     minimumSum = 0
     ap = 0
@@ -34,51 +36,7 @@ insurance_premium_calculation = function(insurance_payout, age, education) {
   return insurance_premium
 }
 
-
-
-ap = function(insurance_payout) {
-  if (insurance_payout < 50000) {
-    return 0
-  } else if (insurance_payout < 100000) {
-    return 600
-  } else if (insurance_payout < 200000) {
-    return 1175
-  } else if (insurance_payout < 300000) {
-    return 2275
-  } else if (insurance_payout < 500000) {
-    return 3375
-  } else {
-    return 5575
-  }
-}
-
-minimumSum = function(insurance_payout) {
-  if (insurance_payout < 50000) {
-    return 0
-  } else if (insurance_payout < 100000) {
-    return 50000
-  } else if (insurance_payout < 200000) {
-    return 100000
-  } else if (insurance_payout < 300000) {
-    return 200000
-  } else if (insurance_payout < 500000) {
-    return 300000
-  } else {
-    return 500000
-  }
-}
-
-sats = function(insurance_payout) {
-  if (insurance_payout < 50000) {
-    sats = 12
-  } else if (insurance_payout < 100000) {
-    sats = 11.5
-  } else {
-  sats = 11
-}
-return sats / 1000
-}
-
+// Age modifier
 var age_list = {
   1: 1.21795,
   14: 1.21795,
@@ -136,6 +94,7 @@ var age_list = {
   66: 0.00000
 }
 
+// Education modifier
 var education_list = {
   "unknown": 1,
   "noHighSchool": 1.4,

@@ -1,5 +1,0 @@
-/*
-Template.archetypes.events({
-  
-});
-*/

@@ -1,3 +1,4 @@
+// Returnes values for use in the view
 Template.features.helpers({
   gross_salary() {
     gross_salary = Session.get('gross_salary')
@@ -19,6 +20,7 @@ Template.features.helpers({
     insurance_premium = Math.ceil(insurance_premium/10)*10
     return insurance_premium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
   },
+  /* // Not in use, but can show new gross salary(as best we could calculate it)
   new_gross_salary() {
     gross_salary = Session.get("gross_salary")
     salary_loss = Session.get("salary_loss")
@@ -27,15 +29,16 @@ Template.features.helpers({
     insurance_payout = Session.get("insurance_payout")
     return gross_salary-salary_loss
     //return payout + insurance_payout
-  }
+  } */
 })
 
 Template.features.events({
+
   'input #gross_salary_input': function() {
-    //var Highcharts = require('highcharts');
-    //var chart=$("#pieChart").highcharts();
     gross_salary = event.target.value.replace(/\s/g, "");
     gross_salary_input = $("#input-group-gross_salary")
+
+    // Updates max insurance payout
     if (gross_salary > 260000 && gross_salary < 2500000) {
       gross_salary_input.removeClass("has-error")
       gross_salary_input.addClass("has-success")
@@ -65,6 +68,7 @@ Template.features.events({
   'focus #gross_salary_input': function() {
     event.target.value = ""
   },
+
   'input #age_input': function() {
     age = event.target.value
     age_input = $("#input-group-age")
